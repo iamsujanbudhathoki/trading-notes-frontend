@@ -31,6 +31,7 @@ const nextConfig = {
       { protocol: "https", hostname: "www.interactivebrokers.com", pathname: "/**" },
       { protocol: "https", hostname: "etoro-cdn.etorostatic.com", pathname: "/**" },
       { protocol: "https", hostname: "www.etoro.com", pathname: "/**" },
+      { protocol: "https", hostname: "upload.wikimedia.org", pathname: "/**" },
       { protocol: "https", hostname: "logo.clearbit.com", pathname: "/**" },
     ],
   },

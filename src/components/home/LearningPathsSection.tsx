@@ -34,7 +34,7 @@ export function LearningPathsSection() {
                     title="Smart Money Concepts"
                     description="The core strategy. Learn about Order Blocks, Liquidity, and how institutions trade."
                     icon={TrendingUp}
-                    href="/learn/smart-money"
+                    href="/learn/smart-money-concepts"
                     color="orange"
                     featured={true}
                     bgImage="/ictlogo.jpg"

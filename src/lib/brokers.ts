@@ -166,7 +166,7 @@ export const brokers: Broker[] = [
   {
     name: "Interactive Brokers",
     slug: "interactive-brokers",
-    logo: "https://logo.clearbit.com/interactivebrokers.com?size=256",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Interactive_Brokers_Logo_%282014%29.svg/425px-Interactive_Brokers_Logo_%282014%29.svg.png?20191214200627",
     rating: 4.7,
     minDeposit: "$0",
     leverage: "1:4",
