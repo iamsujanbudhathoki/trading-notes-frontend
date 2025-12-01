@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F5F1E8;
+  --color-cream-dark: #E8E1D3;
+  --color-slate-900: #1E293B;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+  --color-rust: #B85C38;
+  --color-rust-hover: #A04D2F;
+  --color-green-700: #047857;
+  --color-green-50: #ECFDF5;
+  --color-amber-50: #FFFBEB;
+  --color-blue-gray-50: #F8FAFC;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 6px;
+
+  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: .5;
+    }
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .transition-smooth {
+    transition: all var(--transition-smooth);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-soft-lg {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Mobile-first tap targets */
+  .tap-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Base Styles */
+body {
+  background-color: var(--color-cream);
+  color: var(--color-slate-900);
+}
+
+/* Reading-optimized typography */
+.prose {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+@media (min-width: 768px) {
+  .prose {
+    font-size: 21px;
+    line-height: 2.0;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button {
+  transition: var(--transition-smooth);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+
+  /* Larger mobile typography */
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  h3 {
+    font-size: 20px !important;
+  }
+
+  /* Mobile spacing */
+  .mobile-spacing {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Remove hover effects on mobile */
+  @media (hover: none) {
+    .hover\:shadow-soft-lg:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    transform: translateY(-16px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.slide-in-from-top-4 {
+  animation: slide-in-from-top 0.3s ease-out;
+}
