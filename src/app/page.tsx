@@ -5,6 +5,8 @@ import { LatestArticlesSection } from "@/components/home/LatestArticlesSection";
 import { SMCICTSection } from "@/components/home/SMCICTSection";
 import { CandlestickPatternsSection } from "@/components/home/CandlestickPatternsSection";
 import { PhilosophySection } from "@/components/home/PhilosophySection";
+import { StatsSection } from "@/components/home/StatsSection";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -25,22 +27,25 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection />
 
+      {/* Stats Section - Build Trust */}
+      <StatsSection />
+
       {/* Philosophy Section */}
       <PhilosophySection />
 
-      {/* Learning Paths */}
+      {/* Learning Paths - Main value proposition */}
       <div className="py-20 md:py-32 bg-[#FAF9F7]">
         <LearningPathsSection />
       </div>
 
-      {/* Trading Tools */}
+      {/* SMC & ICT Trading - Featured Methodology */}
       <div className="py-20 md:py-32 bg-white border-y border-slate-100">
-        <TradingToolsSection />
+        <SMCICTSection />
       </div>
 
-      {/* SMC & ICT Trading */}
+      {/* Trading Tools */}
       <div className="py-20 md:py-32 bg-[#FAF9F7]">
-        <SMCICTSection />
+        <TradingToolsSection />
       </div>
 
       {/* Candlestick Patterns */}
@@ -49,9 +54,15 @@ export default function Home() {
       </div>
 
       {/* Latest Articles */}
-      <div className="py-20 md:py-32 pb-32 bg-[#FAF9F7]">
+      <div className="py-20 md:py-32 bg-[#FAF9F7]">
         <LatestArticlesSection />
       </div>
+
+      {/* Social Proof / Testimonials */}
+      <div className="py-20 md:py-32 bg-white border-t border-slate-100">
+        <TestimonialsSection />
+      </div>
+
     </div>
   );
 }

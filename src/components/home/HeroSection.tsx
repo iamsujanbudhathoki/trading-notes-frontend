@@ -4,7 +4,7 @@ import { ArrowRight, BarChart2 } from "lucide-react";
 
 export function HeroSection() {
     return (
-        <section className="relative w-full bg-white overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
+        <section className="relative w-full bg-white overflow-hidden pt-20 pb-12 lg:pt-28 lg:pb-16">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
