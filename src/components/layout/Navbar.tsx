@@ -37,13 +37,13 @@ const navigationMenus = {
 
 function DropdownMenu({ items }: { items: typeof navigationMenus.learn }) {
     return (
-        <div className="absolute top-full left-0 mt-2 min-w-[240px] bg-white border border-cream-dark rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out transform group-hover:translate-y-0 translate-y-2 p-2 z-50">
+        <div className="absolute top-full left-0 mt-2 min-w-[240px] bg-white/95 backdrop-blur-xl border border-slate-100 rounded-xl shadow-xl shadow-slate-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out transform group-hover:translate-y-0 translate-y-2 p-2 z-50">
             <div className="flex flex-col">
                 {items.map((item) => (
                     <Link
                         key={item.href}
                         href={item.href}
-                        className="px-4 py-3 hover:bg-[#B85C38] hover:bg-opacity-10 text-slate-700 hover:text-slate-900 rounded-lg text-sm transition-all duration-200 font-medium whitespace-nowrap"
+                        className="px-4 py-3 hover:bg-copper-50 text-slate-600 hover:text-copper-700 rounded-lg text-sm transition-all duration-200 font-medium whitespace-nowrap"
                     >
                         {item.label}
                     </Link>
@@ -57,6 +57,7 @@ export function Navbar() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {
@@ -70,6 +71,15 @@ export function Navbar() {
             document.body.style.overflow = 'unset';
         };
     }, [isMobileMenuOpen]);
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     // Close mobile menu when resizing to desktop
     useEffect(() => {
@@ -96,13 +106,13 @@ export function Navbar() {
     return (
         <>
             {/* Desktop Navbar - Full width */}
-            <nav className="sticky top-0 left-0 right-0 z-50 w-full bg-cream shadow-sm border-b border-cream-dark">
+            <nav className={`sticky top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200/50' : 'bg-transparent border-b border-transparent'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <Link
                             href="/"
-                            className="font-sans font-bold text-lg sm:text-xl tracking-tight text-slate-900 hover:text-[#B85C38] transition-colors duration-300 flex-shrink-0"
+                            className="font-serif font-bold text-xl sm:text-2xl tracking-tight text-slate-900 hover:text-copper-600 transition-colors duration-300 flex-shrink-0"
                         >
                             TRADENOTES
                         </Link>
@@ -112,14 +122,14 @@ export function Navbar() {
                             {/* Articles Link */}
                             <Link
                                 href="/articles"
-                                className="px-3 xl:px-4 py-2 font-sans font-medium text-sm text-slate-700 hover:text-[#B85C38] hover:bg-cream-dark rounded-lg transition-all duration-300"
+                                className="px-3 xl:px-4 py-2 font-medium text-sm text-slate-600 hover:text-copper-600 hover:bg-copper-50/50 rounded-lg transition-all duration-300"
                             >
                                 Articles
                             </Link>
 
                             {/* Learn Dropdown */}
                             <div className="relative group">
-                                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 font-sans font-medium text-sm text-slate-700 hover:text-[#B85C38] hover:bg-cream-dark rounded-lg transition-all duration-300">
+                                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 font-medium text-sm text-slate-600 hover:text-copper-600 hover:bg-copper-50/50 rounded-lg transition-all duration-300">
                                     Learn
                                     <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
                                 </button>
@@ -128,7 +138,7 @@ export function Navbar() {
 
                             {/* Tools Dropdown */}
                             <div className="relative group">
-                                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 font-sans font-medium text-sm text-slate-700 hover:text-[#B85C38] hover:bg-cream-dark rounded-lg transition-all duration-300">
+                                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 font-medium text-sm text-slate-600 hover:text-copper-600 hover:bg-copper-50/50 rounded-lg transition-all duration-300">
                                     Tools
                                     <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
                                 </button>
@@ -137,7 +147,7 @@ export function Navbar() {
 
                             {/* Resources Dropdown */}
                             <div className="relative group">
-                                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 font-sans font-medium text-sm text-slate-700 hover:text-[#B85C38] hover:bg-cream-dark rounded-lg transition-all duration-300">
+                                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 font-medium text-sm text-slate-600 hover:text-copper-600 hover:bg-copper-50/50 rounded-lg transition-all duration-300">
                                     Resources
                                     <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
                                 </button>
@@ -147,20 +157,20 @@ export function Navbar() {
                             {/* Community Link */}
                             <Link
                                 href="/community"
-                                className="px-3 xl:px-4 py-2 font-sans font-medium text-sm text-slate-700 hover:text-[#B85C38] hover:bg-cream-dark rounded-lg transition-all duration-300"
+                                className="px-3 xl:px-4 py-2 font-medium text-sm text-slate-600 hover:text-copper-600 hover:bg-copper-50/50 rounded-lg transition-all duration-300"
                             >
                                 Community
                             </Link>
                         </div>
 
                         {/* Actions */}
-                        <div className="flex items-center gap-2 flex-shrink-0">
+                        <div className="flex items-center gap-3 flex-shrink-0">
                             {/* Join Discord CTA - Desktop */}
                             <Link
                                 href="https://discord.gg/trading"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hidden lg:flex items-center gap-2 px-3 xl:px-4 py-2 bg-[#5865F2] text-white font-medium text-sm rounded-lg hover:bg-[#4752C4] transition-all duration-300 shadow-sm hover:shadow-md"
+                                className="hidden lg:flex items-center gap-2 px-4 py-2.5 bg-[#5865F2] text-white font-medium text-sm rounded-xl hover:bg-[#4752C4] transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                                 aria-label="Join Discord Community"
                             >
                                 <DiscordIcon className="w-4 h-4" />
@@ -170,7 +180,7 @@ export function Navbar() {
                             {/* Search Button */}
                             <button
                                 onClick={() => setIsSearchOpen(true)}
-                                className="p-2 hover:bg-cream-dark rounded-lg transition-all duration-300 text-slate-700 hover:text-slate-900"
+                                className="p-2.5 hover:bg-slate-100 rounded-xl transition-all duration-300 text-slate-600 hover:text-slate-900"
                                 aria-label="Search"
                             >
                                 <Search className="w-5 h-5" />
@@ -179,7 +189,7 @@ export function Navbar() {
                             {/* Mobile Menu Button */}
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="lg:hidden p-2 hover:bg-cream-dark rounded-lg transition-all duration-300 text-slate-700 hover:text-slate-900"
+                                className="lg:hidden p-2.5 hover:bg-slate-100 rounded-xl transition-all duration-300 text-slate-600 hover:text-slate-900"
                                 aria-label="Toggle menu"
                                 aria-expanded={isMobileMenuOpen}
                             >
@@ -192,43 +202,39 @@ export function Navbar() {
                         </div>
                     </div>
                 </div>
-
-                {/* Accent line */}
-                <div className="h-0.5 bg-gradient-to-r from-[#B85C38] via-[#D4A574] to-[#B85C38]" />
             </nav>
 
             {/* FULL-SCREEN Mobile Menu Overlay */}
             {isMobileMenuOpen && (
-                <div className="fixed inset-0 z-[60] lg:hidden bg-cream">
+                <div className="fixed inset-0 z-[60] lg:hidden bg-white">
                     {/* Header with Logo and Close Button */}
-                    <div className="sticky top-0 bg-cream border-b border-cream-dark z-10">
-                        <div className="flex items-center justify-between h-16 px-6">
+                    <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-100 z-10">
+                        <div className="flex items-center justify-between h-20 px-6">
                             <Link
                                 href="/"
                                 onClick={closeMobileMenu}
-                                className="font-sans font-bold text-xl tracking-tight text-slate-900"
+                                className="font-serif font-bold text-2xl tracking-tight text-slate-900"
                             >
                                 TRADENOTES
                             </Link>
                             <button
                                 onClick={closeMobileMenu}
-                                className="p-2 hover:bg-cream-dark rounded-lg transition-all duration-300 text-slate-700 hover:text-slate-900"
+                                className="p-2 hover:bg-slate-100 rounded-xl transition-all duration-300 text-slate-600 hover:text-slate-900"
                                 aria-label="Close menu"
                             >
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
-                        <div className="h-0.5 bg-gradient-to-r from-[#B85C38] via-[#D4A574] to-[#B85C38]" />
                     </div>
 
                     {/* Scrollable Menu Content */}
-                    <div className="h-[calc(100vh-65px)] overflow-y-auto">
+                    <div className="h-[calc(100vh-80px)] overflow-y-auto">
                         <div className="px-6 py-8 space-y-4">
                             {/* Articles Link */}
                             <Link
                                 href="/articles"
                                 onClick={closeMobileMenu}
-                                className="block px-6 py-4 font-sans font-semibold text-xl text-slate-800 hover:text-white hover:bg-[#B85C38] rounded-xl transition-all duration-300"
+                                className="block px-6 py-4 font-serif font-bold text-xl text-slate-800 hover:text-white hover:bg-copper-500 rounded-xl transition-all duration-300"
                             >
                                 Articles
                             </Link>
@@ -237,19 +243,19 @@ export function Navbar() {
                             <div className="space-y-2">
                                 <button
                                     onClick={() => toggleMobileDropdown('learn')}
-                                    className="w-full flex items-center justify-between px-6 py-4 font-sans font-semibold text-xl text-slate-800 hover:text-white hover:bg-[#B85C38] rounded-xl transition-all duration-300"
+                                    className="w-full flex items-center justify-between px-6 py-4 font-serif font-bold text-xl text-slate-800 hover:text-white hover:bg-copper-500 rounded-xl transition-all duration-300"
                                 >
                                     Learn
                                     <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${activeMobileDropdown === 'learn' ? 'rotate-180' : ''}`} />
                                 </button>
                                 {activeMobileDropdown === 'learn' && (
-                                    <div className="space-y-1 pl-4 py-2 bg-cream-dark/30 rounded-xl">
+                                    <div className="space-y-1 pl-4 py-2 bg-slate-50 rounded-xl">
                                         {navigationMenus.learn.map((item) => (
                                             <Link
                                                 key={item.href}
                                                 href={item.href}
                                                 onClick={closeMobileMenu}
-                                                className="block px-6 py-3 text-base text-slate-700 hover:text-[#B85C38] hover:bg-white/50 rounded-lg transition-all duration-200 font-medium"
+                                                className="block px-6 py-3 text-base text-slate-600 hover:text-copper-600 hover:bg-white rounded-lg transition-all duration-200 font-medium"
                                             >
                                                 {item.label}
                                             </Link>
@@ -262,19 +268,19 @@ export function Navbar() {
                             <div className="space-y-2">
                                 <button
                                     onClick={() => toggleMobileDropdown('tools')}
-                                    className="w-full flex items-center justify-between px-6 py-4 font-sans font-semibold text-xl text-slate-800 hover:text-white hover:bg-[#B85C38] rounded-xl transition-all duration-300"
+                                    className="w-full flex items-center justify-between px-6 py-4 font-serif font-bold text-xl text-slate-800 hover:text-white hover:bg-copper-500 rounded-xl transition-all duration-300"
                                 >
                                     Tools
                                     <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${activeMobileDropdown === 'tools' ? 'rotate-180' : ''}`} />
                                 </button>
                                 {activeMobileDropdown === 'tools' && (
-                                    <div className="space-y-1 pl-4 py-2 bg-cream-dark/30 rounded-xl">
+                                    <div className="space-y-1 pl-4 py-2 bg-slate-50 rounded-xl">
                                         {navigationMenus.tools.map((item) => (
                                             <Link
                                                 key={item.href}
                                                 href={item.href}
                                                 onClick={closeMobileMenu}
-                                                className="block px-6 py-3 text-base text-slate-700 hover:text-[#B85C38] hover:bg-white/50 rounded-lg transition-all duration-200 font-medium"
+                                                className="block px-6 py-3 text-base text-slate-600 hover:text-copper-600 hover:bg-white rounded-lg transition-all duration-200 font-medium"
                                             >
                                                 {item.label}
                                             </Link>
@@ -287,19 +293,19 @@ export function Navbar() {
                             <div className="space-y-2">
                                 <button
                                     onClick={() => toggleMobileDropdown('resources')}
-                                    className="w-full flex items-center justify-between px-6 py-4 font-sans font-semibold text-xl text-slate-800 hover:text-white hover:bg-[#B85C38] rounded-xl transition-all duration-300"
+                                    className="w-full flex items-center justify-between px-6 py-4 font-serif font-bold text-xl text-slate-800 hover:text-white hover:bg-copper-500 rounded-xl transition-all duration-300"
                                 >
                                     Resources
                                     <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${activeMobileDropdown === 'resources' ? 'rotate-180' : ''}`} />
                                 </button>
                                 {activeMobileDropdown === 'resources' && (
-                                    <div className="space-y-1 pl-4 py-2 bg-cream-dark/30 rounded-xl">
+                                    <div className="space-y-1 pl-4 py-2 bg-slate-50 rounded-xl">
                                         {navigationMenus.resources.map((item) => (
                                             <Link
                                                 key={item.href}
                                                 href={item.href}
                                                 onClick={closeMobileMenu}
-                                                className="block px-6 py-3 text-base text-slate-700 hover:text-[#B85C38] hover:bg-white/50 rounded-lg transition-all duration-200 font-medium"
+                                                className="block px-6 py-3 text-base text-slate-600 hover:text-copper-600 hover:bg-white rounded-lg transition-all duration-200 font-medium"
                                             >
                                                 {item.label}
                                             </Link>
@@ -312,13 +318,13 @@ export function Navbar() {
                             <Link
                                 href="/community"
                                 onClick={closeMobileMenu}
-                                className="block px-6 py-4 font-sans font-semibold text-xl text-slate-800 hover:text-white hover:bg-[#B85C38] rounded-xl transition-all duration-300"
+                                className="block px-6 py-4 font-serif font-bold text-xl text-slate-800 hover:text-white hover:bg-copper-500 rounded-xl transition-all duration-300"
                             >
                                 Community
                             </Link>
 
                             {/* Divider */}
-                            <div className="h-px bg-cream-dark my-6" />
+                            <div className="h-px bg-slate-100 my-6" />
 
                             {/* Join Discord CTA */}
                             <Link

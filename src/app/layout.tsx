@@ -154,7 +154,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${merriweather.variable} antialiased bg-cream text-slate-900 font-serif`}
+        className={`${inter.variable} ${merriweather.variable} antialiased bg-cream text-slate-900 font-sans selection:bg-copper-500/30 selection:text-copper-900`}
       >
         <AppShell>
           <NextTopLoader color="#B85C38" showSpinner={false} />

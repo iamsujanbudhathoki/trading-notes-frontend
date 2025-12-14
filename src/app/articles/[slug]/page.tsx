@@ -28,7 +28,7 @@ function ReadingProgress() {
     return (
         <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-50">
             <div
-                className="h-full bg-[#B85C38] transition-all duration-150 ease-out"
+                className="h-full bg-copper-500 transition-all duration-150 ease-out"
                 style={{ width: `${progress}%` }}
             />
         </div>
@@ -103,18 +103,18 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 lg:p-16 max-w-[1400px] mx-auto">
                     <div className="max-w-3xl">
-                        <div className="flex items-center gap-2 text-xs font-bold text-[#B85C38] mb-4 uppercase tracking-wider">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#B85C38]" />
+                        <div className="flex items-center gap-2 text-xs font-bold text-copper-400 mb-4 uppercase tracking-wider">
+                            <span className="w-1.5 h-1.5 rounded-full bg-copper-500" />
                             {article.category}
                         </div>
                         <h1 className="font-serif font-extrabold text-3xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight tracking-tight">
                             {article.title}
                         </h1>
-                        <div className="flex items-center gap-4 text-white/70 text-xs">
+                        <div className="flex items-center gap-4 text-white/70 text-xs uppercase tracking-wider font-medium">
                             <div className="flex items-center gap-1.5">
                                 <Calendar className="w-3.5 h-3.5" />
                                 <span>{article.date}</span>
@@ -137,8 +137,8 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                 {/* Left Sidebar */}
                 <aside className="hidden lg:block h-full">
                     <div className="sticky top-32 flex flex-col items-center gap-6">
-                        <Link href="/articles" className="group flex flex-col items-center gap-1 text-slate-400 hover:text-[#B85C38] transition-colors relative">
-                            <div className="p-3 rounded-full bg-slate-50 group-hover:bg-[#B85C38]/10 transition-colors">
+                        <Link href="/articles" className="group flex flex-col items-center gap-1 text-slate-400 hover:text-copper-600 transition-colors relative">
+                            <div className="p-3 rounded-full bg-slate-50 group-hover:bg-copper-50 transition-colors">
                                 <ArrowLeft className="w-5 h-5" />
                             </div>
                             <span className="text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute left-14 bg-slate-800 text-white px-2 py-1 rounded shadow-sm whitespace-nowrap z-50 pointer-events-none">
@@ -177,7 +177,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
 
                 <article className="min-w-0 max-w-[680px] mx-auto w-full">
 
-                    <p className="text-base text-slate-600 font-sans leading-relaxed mb-8 border-l-4 border-[#B85C38] pl-5">
+                    <p className="text-base text-slate-600 font-sans leading-relaxed mb-8 border-l-4 border-copper-500 pl-5">
                         {article.description}
                     </p>
 
@@ -191,8 +191,8 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                         [&>ol]:text-sm [&>ol]:text-slate-700 [&>ol]:my-4 [&>ol]:ml-6
                         [&>li]:text-sm [&>li]:leading-relaxed
                         [&>strong]:text-slate-900 [&>strong]:font-semibold
-                        [&>a]:text-[#B85C38] [&>a]:no-underline hover:[&>a]:underline
-                        [&>blockquote]:border-l-4 [&>blockquote]:border-[#B85C38] [&>blockquote]:bg-slate-50 [&>blockquote]:py-3 [&>blockquote]:px-4 [&>blockquote]:my-4 [&>blockquote]:text-sm
+                        [&>a]:text-copper-600 [&>a]:font-medium [&>a]:no-underline hover:[&>a]:underline
+                        [&>blockquote]:border-l-4 [&>blockquote]:border-copper-500 [&>blockquote]:bg-slate-50 [&>blockquote]:py-3 [&>blockquote]:px-4 [&>blockquote]:my-4 [&>blockquote]:text-sm
                         [&>img]:rounded-lg [&>img]:shadow-sm [&>img]:my-4 [&>img]:w-full"
                         dangerouslySetInnerHTML={{ __html: article.content }}
                     />
@@ -254,8 +254,8 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
 
 function ActionButton({ icon: Icon, label, onClick }: { icon: any, label: string, onClick: () => void }) {
     return (
-        <button onClick={onClick} className="group flex flex-col items-center gap-1 text-slate-400 hover:text-[#B85C38] transition-colors relative cursor-pointer">
-            <div className="p-3 rounded-full bg-slate-50 group-hover:bg-[#B85C38]/10 transition-colors">
+        <button onClick={onClick} className="group flex flex-col items-center gap-1 text-slate-400 hover:text-copper-600 transition-colors relative cursor-pointer">
+            <div className="p-3 rounded-full bg-slate-50 group-hover:bg-copper-50 transition-colors">
                 <Icon className="w-5 h-5" />
             </div>
             <span className="text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute left-14 bg-slate-800 text-white px-2 py-1 rounded shadow-sm whitespace-nowrap z-50 pointer-events-none">
@@ -275,14 +275,14 @@ function Tag({ label }: { label: string }) {
 
 function LessonItem({ number, title, duration, status, slug }: { number: number, title: string, duration: string, status: 'completed' | 'current' | 'locked', slug: string }) {
     const content = (
-        <div className={`p-4 flex items-start gap-3 border-b border-slate-50 transition-colors ${status === 'current' ? 'bg-[#B85C38]/5' : 'hover:bg-slate-50'}`}>
+        <div className={`p-4 flex items-start gap-3 border-b border-slate-50 transition-colors ${status === 'current' ? 'bg-copper-50' : 'hover:bg-slate-50'}`}>
             <div className="mt-0.5">
                 {status === 'completed' && <CheckCircle2 className="w-4 h-4 text-green-500" />}
-                {status === 'current' && <PlayCircle className="w-4 h-4 text-[#B85C38]" />}
+                {status === 'current' && <PlayCircle className="w-4 h-4 text-copper-500" />}
                 {status === 'locked' && <Lock className="w-4 h-4 text-slate-300" />}
             </div>
             <div>
-                <div className={`text-sm font-medium ${status === 'current' ? 'text-[#B85C38]' : 'text-slate-700'}`}>
+                <div className={`text-sm font-medium ${status === 'current' ? 'text-copper-700' : 'text-slate-700'}`}>
                     {number}. {title}
                 </div>
                 <div className="text-xs text-slate-400">{duration}</div>

@@ -17,10 +17,10 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
         <nav className="flex items-center gap-2 text-sm mb-8" aria-label="Breadcrumb">
             <Link
                 href="/"
-                className="flex items-center gap-1 text-slate-500 hover:text-[#B85C38] transition-colors"
+                className="flex items-center gap-1 text-slate-400 hover:text-copper-500 transition-colors"
             >
                 <Home className="w-4 h-4" />
-                <span>Home</span>
+                <span className="sr-only">Home</span>
             </Link>
 
             {items.map((item, index) => {
@@ -32,12 +32,12 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
                         {item.href && !isLast ? (
                             <Link
                                 href={item.href}
-                                className="text-slate-500 hover:text-[#B85C38] transition-colors"
+                                className="text-slate-500 hover:text-copper-600 transition-colors font-medium"
                             >
                                 {item.label}
                             </Link>
                         ) : (
-                            <span className="text-slate-900 font-medium">
+                            <span className="text-slate-900 font-bold font-serif tracking-tight">
                                 {item.label}
                             </span>
                         )}

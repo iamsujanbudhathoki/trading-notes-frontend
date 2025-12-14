@@ -58,21 +58,25 @@ const communities = [
 
 export default function CommunityPage() {
     return (
-        <div className="w-full min-h-screen bg-slate-50">
+        <div className="w-full min-h-screen bg-cream">
             {/* Hero */}
-            <section className="bg-slate-900 py-20">
-                <div className="max-w-7xl mx-auto px-6 text-center">
-                    <h1 className="font-sans font-bold text-4xl md:text-5xl text-white mb-6">
-                        Trading Communities
+            <section className="relative bg-slate-950 text-white py-24 overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-copper-500/10 to-transparent blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-slate-800/20 to-transparent blur-3xl" />
+
+                <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                    <h1 className="font-serif font-bold text-4xl md:text-6xl text-white mb-6">
+                        Trading <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Communities</span>
                     </h1>
-                    <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+                    <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         Connect with fellow traders, share ideas, and accelerate your learning curve by joining these top communities.
                     </p>
                 </div>
             </section>
 
             {/* Communities Grid */}
-            <section className="max-w-5xl mx-auto px-6 py-16 -mt-10 relative z-10">
+            <section className="max-w-5xl mx-auto px-6 py-16 -mt-12 relative z-20">
                 <div className="grid gap-6">
                     {communities.map((community) => {
                         const Icon = community.icon;
@@ -82,37 +86,37 @@ export default function CommunityPage() {
                                 href={community.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex flex-col md:flex-row items-start md:items-center gap-6"
+                                className="group bg-white rounded-2xl p-8 shadow-lg shadow-slate-900/5 border border-slate-100 hover:shadow-xl hover:shadow-slate-900/10 transition-all duration-300 flex flex-col md:flex-row items-start md:items-center gap-6 hover:-translate-y-1"
                             >
-                                <div className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${community.color}15` }}>
+                                <div className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110" style={{ backgroundColor: `${community.color}15` }}>
                                     <Icon className="w-8 h-8" style={{ color: community.color }} />
                                 </div>
 
                                 <div className="flex-1">
                                     <div className="flex items-center gap-3 mb-2">
-                                        <h2 className="font-sans font-bold text-xl text-slate-900 group-hover:text-[#B85C38] transition-colors">
+                                        <h2 className="font-serif font-bold text-2xl text-slate-900 group-hover:text-copper-600 transition-colors">
                                             {community.name}
                                         </h2>
-                                        <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">
+                                        <span className="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-bold rounded-full uppercase tracking-wider border border-slate-100">
                                             {community.platform}
                                         </span>
                                     </div>
-                                    <p className="text-slate-600 mb-3">
+                                    <p className="text-slate-600 mb-4 leading-relaxed">
                                         {community.description}
                                     </p>
-                                    <div className="flex items-center gap-4 text-sm text-slate-500">
-                                        <div className="flex items-center gap-1">
-                                            <Users className="w-4 h-4" />
+                                    <div className="flex items-center gap-6 text-sm text-slate-500 font-medium">
+                                        <div className="flex items-center gap-2">
+                                            <Users className="w-4 h-4 text-copper-500" />
                                             {community.members} Members
                                         </div>
-                                        <div className="flex items-center gap-1">
-                                            <Shield className="w-4 h-4" />
+                                        <div className="flex items-center gap-2">
+                                            <Shield className="w-4 h-4 text-copper-500" />
                                             {community.type}
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-2 text-[#B85C38] font-bold text-sm group-hover:gap-3 transition-all">
+                                <div className="flex items-center gap-2 text-copper-600 font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all self-start md:self-center mt-4 md:mt-0">
                                     Join Now
                                     <ArrowRight className="w-4 h-4" />
                                 </div>

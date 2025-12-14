@@ -28,34 +28,38 @@ const tools = [
 
 export default function ToolsPage() {
     return (
-        <div className="w-full min-h-screen bg-slate-50">
+        <div className="w-full min-h-screen bg-cream">
             {/* Header */}
-            <section className="bg-slate-900 py-20">
-                <div className="max-w-7xl mx-auto px-6 text-center">
-                    <h1 className="font-sans font-bold text-4xl md:text-5xl text-white mb-4">
-                        Trading Tools
+            <section className="relative bg-slate-950 text-white py-24 overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-copper-500/10 to-transparent blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-slate-800/20 to-transparent blur-3xl" />
+
+                <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                    <h1 className="font-serif font-bold text-4xl md:text-6xl text-white mb-6">
+                        Trading <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Tools</span>
                     </h1>
-                    <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                        Essential calculators and utilities to enhance your trading edge.
+                    <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                        Essential calculators and utilities to enhance your trading edge. Precision matters.
                     </p>
                 </div>
             </section>
 
             {/* Tools Grid */}
-            <section className="max-w-7xl mx-auto px-6 py-16 -mt-10 relative z-10">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <section className="max-w-7xl mx-auto px-6 py-16 -mt-12 relative z-20">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {tools.map((tool) => {
                         const Icon = tool.icon;
                         return (
                             <Link
                                 key={tool.title}
                                 href={tool.href}
-                                className="group bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:border-[#B85C38] transition-all duration-300 flex flex-col items-center text-center gap-4"
+                                className="group bg-white p-6 rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 hover:shadow-xl hover:border-copper-500/30 transition-all duration-300 flex flex-col items-center text-center gap-4 hover:-translate-y-1"
                             >
-                                <div className="w-12 h-12 rounded-lg bg-slate-50 group-hover:bg-[#B85C38]/10 flex items-center justify-center transition-colors duration-300">
-                                    <Icon className="w-6 h-6 text-slate-600 group-hover:text-[#B85C38] transition-colors duration-300" />
+                                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-copper-500 flex items-center justify-center transition-all duration-300 shadow-sm">
+                                    <Icon className="w-7 h-7 text-slate-600 group-hover:text-white transition-colors duration-300" />
                                 </div>
-                                <span className="font-sans font-bold text-sm text-slate-900 group-hover:text-[#B85C38] transition-colors duration-300">
+                                <span className="font-serif font-bold text-sm text-slate-900 group-hover:text-copper-600 transition-colors duration-300">
                                     {tool.title}
                                 </span>
                             </Link>

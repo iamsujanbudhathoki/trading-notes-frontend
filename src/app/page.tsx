@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#FAF9F7]">
+    <div className="w-full bg-cream">
       {/* Hero Section */}
       <HeroSection />
 
@@ -34,32 +34,32 @@ export default function Home() {
       <PhilosophySection />
 
       {/* Learning Paths - Main value proposition */}
-      <div className="py-20 md:py-32 bg-[#FAF9F7]">
+      <div className="bg-cream border-t border-slate-100">
         <LearningPathsSection />
       </div>
 
       {/* SMC & ICT Trading - Featured Methodology */}
-      <div className="py-20 md:py-32 bg-white border-y border-slate-100">
+      <div className="bg-white border-y border-slate-100">
         <SMCICTSection />
       </div>
 
       {/* Trading Tools */}
-      <div className="py-20 md:py-32 bg-[#FAF9F7]">
+      <div className="bg-cream">
         <TradingToolsSection />
       </div>
 
       {/* Candlestick Patterns */}
-      <div className="py-20 md:py-32 bg-white">
+      <div className="bg-white border-y border-slate-100">
         <CandlestickPatternsSection />
       </div>
 
       {/* Latest Articles */}
-      <div className="py-20 md:py-32 bg-[#FAF9F7]">
+      <div className="bg-cream">
         <LatestArticlesSection />
       </div>
 
       {/* Social Proof / Testimonials */}
-      <div className="py-20 md:py-32 bg-white border-t border-slate-100">
+      <div className="bg-white border-t border-slate-100">
         <TestimonialsSection />
       </div>
 
