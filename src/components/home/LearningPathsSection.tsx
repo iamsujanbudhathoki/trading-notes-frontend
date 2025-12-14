@@ -28,6 +28,7 @@ export function LearningPathsSection() {
                     href="/learn/foundation"
                     color="slate"
                     bgImage="/fundamental.webp"
+                    badge="Start Here"
                 />
                 <LevelCard
                     level="Level 2"
@@ -53,7 +54,7 @@ export function LearningPathsSection() {
     );
 }
 
-function LevelCard({ level, title, description, icon: Icon, href, color, bgImage, featured = false }: any) {
+function LevelCard({ level, title, description, icon: Icon, href, color, bgImage, featured = false, badge }: any) {
     const colorClasses = {
         slate: 'from-slate-700 to-slate-900',
         copper: 'from-copper-500 to-copper-700',
@@ -81,7 +82,12 @@ function LevelCard({ level, title, description, icon: Icon, href, color, bgImage
                 </div>
 
                 {/* Level Badge */}
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-4 flex gap-2">
+                    {badge && (
+                        <span className="px-3 py-1.5 bg-copper-500 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg animate-pulse">
+                            {badge}
+                        </span>
+                    )}
                     <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider rounded-full border border-white/20">
                         {level}
                     </span>

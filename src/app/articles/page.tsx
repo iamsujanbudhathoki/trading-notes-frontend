@@ -46,7 +46,7 @@ export default function ArticlesPage() {
                             <span>Trading Knowledge Hub</span>
                         </div>
                         <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                            Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Markets</span>
+                            Master the <span className="text-copper-400">Markets</span>
                         </h1>
                         <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl">
                             Deep dive into Smart Money Concepts, institutional trading strategies, and the psychology of profitable trading.

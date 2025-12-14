@@ -121,7 +121,7 @@ export default function LearnPage() {
                         <h1 className="font-serif font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
                             Technical Analysis
                             <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Methodologies</span>
+                            <span className="text-copper-400">Methodologies</span>
                         </h1>
                         <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
                             Master modern TA through structured curricula. From ICT/SMC to Price Action and beyond.

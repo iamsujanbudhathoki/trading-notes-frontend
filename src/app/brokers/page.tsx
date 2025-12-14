@@ -34,7 +34,7 @@ export default function BrokersPage() {
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
                     <h1 className="font-serif font-bold text-4xl md:text-6xl text-white mb-6">
-                        Broker Reviews & <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Ratings</span>
+                        Broker Reviews & <span className="text-copper-400">Ratings</span>
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
                         Unbiased reviews of the world's top trading platforms. We test spreads, execution speed, withdrawals, and support so you don't have to.

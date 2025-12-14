@@ -11,7 +11,7 @@ export default function ContactPage() {
 
                 <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
                     <h1 className="font-serif font-bold text-4xl md:text-6xl mb-6 leading-tight">
-                        Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Touch</span>
+                        Get in <span className="text-copper-400">Touch</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
                         Have questions, suggestions, or feedback? We'd love to hear from you.

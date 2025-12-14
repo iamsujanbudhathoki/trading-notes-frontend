@@ -22,7 +22,7 @@ export function HeroSection() {
 
                         <h1 className="font-serif font-bold text-5xl md:text-6xl lg:text-7xl text-slate-900 leading-[1.1] tracking-tight mb-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                             Stop Gambling. <br />
-                            <span className="text-gradient-copper">Start Trading.</span>
+                            <span className="text-copper-600">Start Trading.</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium animate-fade-in-up" style={{ animationDelay: '200ms' }}>

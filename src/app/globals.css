@@ -89,6 +89,7 @@
     background: linear-gradient(135deg, #B85C38 0%, #9A4A2B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
@@ -102,16 +103,7 @@ body {
 
 /* Reading-optimized typography */
 .prose {
-  font-size: 18px;
-  line-height: 1.8;
   max-width: 680px;
-}
-
-@media (min-width: 768px) {
-  .prose {
-    font-size: 20px;
-    line-height: 1.9;
-  }
 }
 
 /* Smooth transitions for all interactive elements */

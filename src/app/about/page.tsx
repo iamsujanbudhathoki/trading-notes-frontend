@@ -26,7 +26,7 @@ export default function AboutPage() {
                         <span>Our Story</span>
                     </div>
                     <h1 className="font-serif font-bold text-4xl md:text-6xl mb-6 leading-tight">
-                        Democratizing <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Institutional</span> Knowledge
+                        Democratizing <span className="text-copper-400">Institutional</span> Knowledge
                     </h1>
                     <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
                         We're on a mission to make professional technical analysis education accessible, structured, and modern. No gatekeeping, just pure value.

@@ -182,18 +182,20 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                     </p>
 
                     <div
-                        className="max-w-none text-sm text-slate-700 leading-relaxed
-                        [&>h1]:font-serif [&>h1]:font-semibold [&>h1]:text-2xl [&>h1]:text-slate-900 [&>h1]:mt-8 [&>h1]:mb-4
-                        [&>h2]:font-serif [&>h2]:font-semibold [&>h2]:text-xl [&>h2]:text-slate-900 [&>h2]:mt-6 [&>h2]:mb-3
-                        [&>h3]:font-serif [&>h3]:font-semibold [&>h3]:text-lg [&>h3]:text-slate-900 [&>h3]:mt-5 [&>h3]:mb-2
-                        [&>p]:text-sm [&>p]:text-slate-700 [&>p]:leading-relaxed [&>p]:mb-4
-                        [&>ul]:text-sm [&>ul]:text-slate-700 [&>ul]:my-4 [&>ul]:ml-6
-                        [&>ol]:text-sm [&>ol]:text-slate-700 [&>ol]:my-4 [&>ol]:ml-6
-                        [&>li]:text-sm [&>li]:leading-relaxed
-                        [&>strong]:text-slate-900 [&>strong]:font-semibold
-                        [&>a]:text-copper-600 [&>a]:font-medium [&>a]:no-underline hover:[&>a]:underline
-                        [&>blockquote]:border-l-4 [&>blockquote]:border-copper-500 [&>blockquote]:bg-slate-50 [&>blockquote]:py-3 [&>blockquote]:px-4 [&>blockquote]:my-4 [&>blockquote]:text-sm
-                        [&>img]:rounded-lg [&>img]:shadow-sm [&>img]:my-4 [&>img]:w-full"
+                        className="max-w-none text-base text-slate-700 leading-relaxed font-sans
+                        [&>h1]:font-serif [&>h1]:font-bold [&>h1]:text-3xl [&>h1]:text-slate-900 [&>h1]:mt-10 [&>h1]:mb-6
+                        [&>h2]:font-serif [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:text-slate-900 [&>h2]:mt-8 [&>h2]:mb-4
+                        [&>h3]:font-serif [&>h3]:font-bold [&>h3]:text-xl [&>h3]:text-slate-900 [&>h3]:mt-6 [&>h3]:mb-3
+                        [&>p]:text-base [&>p]:text-slate-700 [&>p]:leading-7 [&>p]:mb-6
+                        [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul]:space-y-2
+                        [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-6 [&>ol]:space-y-2
+                        [&>li]:text-slate-700 [&>li]:leading-7
+                        [&>strong]:text-slate-900 [&>strong]:font-bold
+                        [&>a]:text-copper-600 [&>a]:font-bold [&>a]:no-underline hover:[&>a]:text-copper-700 hover:[&>a]:underline
+                        [&>blockquote]:border-l-4 [&>blockquote]:border-copper-500 [&>blockquote]:bg-slate-50 [&>blockquote]:py-4 [&>blockquote]:px-6 [&>blockquote]:my-8 [&>blockquote]:rounded-r-lg [&>blockquote]:italic [&>blockquote]:text-slate-700
+                        [&>img]:rounded-xl [&>img]:shadow-lg [&>img]:my-8 [&>img]:w-full [&>img]:border [&>img]:border-slate-100
+                        [&>code]:bg-slate-100 [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>code]:text-slate-800
+                        [&>pre]:bg-slate-900 [&>pre]:p-4 [&>pre]:rounded-xl [&>pre]:overflow-x-auto [&>pre]:my-6 [&>pre]:text-white"
                         dangerouslySetInnerHTML={{ __html: article.content }}
                     />
 

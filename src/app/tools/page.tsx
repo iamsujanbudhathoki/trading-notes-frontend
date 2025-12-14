@@ -37,7 +37,7 @@ export default function ToolsPage() {
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
                     <h1 className="font-serif font-bold text-4xl md:text-6xl text-white mb-6">
-                        Trading <span className="text-transparent bg-clip-text bg-gradient-to-r from-copper-400 to-copper-600">Tools</span>
+                        Trading <span className="text-copper-400">Tools</span>
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         Essential calculators and utilities to enhance your trading edge. Precision matters.

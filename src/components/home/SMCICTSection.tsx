@@ -42,7 +42,7 @@ export function SMCICTSection() {
                         SMC & ICT Trading
                     </h2>
                     <p className="text-slate-500 text-lg max-w-xl">
-                        Master institutional concepts and trading like the big players. Decode the algorithm.
+                        SMC (Smart Money Concepts) reveals how institutions trade. Learn to track their footprints and trade alongside them, not against them.
                     </p>
                 </div>
                 <Link href="/learn/smc-ict" className="text-copper-600 font-bold flex items-center gap-2 hover:gap-3 transition-all hover:text-copper-700">

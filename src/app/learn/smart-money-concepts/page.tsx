@@ -1,80 +1,7 @@
 import Link from "next/link";
 import { PlayCircle, Clock, BookOpen, ArrowLeft, CheckCircle2 } from "lucide-react";
 
-const curriculum = [
-    {
-        section: "Foundation",
-        lessons: [
-            { title: "What is Smart Money?", duration: "8 min" },
-            { title: "Understanding Institutional Orderflow", duration: "12 min" },
-            { title: "Market Structure Basics", duration: "10 min" },
-            { title: "Higher Highs, Higher Lows, Lower Highs, Lower Lows", duration: "15 min" }
-        ]
-    },
-    {
-        section: "Order Blocks",
-        lessons: [
-            { title: "What are Order Blocks?", duration: "10 min" },
-            { title: "Bullish Order Blocks", duration: "12 min" },
-            { title: "Bearish Order Blocks", duration: "12 min" },
-            { title: "Breaker Blocks Explained", duration: "14 min" },
-            { title: "Mitigation Blocks", duration: "10 min" },
-            { title: "How to Trade Order Blocks", duration: "18 min" }
-        ]
-    },
-    {
-        section: "Fair Value Gaps (FVG)",
-        lessons: [
-            { title: "Understanding Price Inefficiencies", duration: "10 min" },
-            { title: "Bullish Fair Value Gaps", duration: "12 min" },
-            { title: "Bearish Fair Value Gaps", duration: "12 min" },
-            { title: "FVG Inversions", duration: "15 min" },
-            { title: "Rejection Blocks", duration: "10 min" },
-            { title: "Trading FVGs Effectively", duration: "20 min" }
-        ]
-    },
-    {
-        section: "Liquidity Concepts",
-        lessons: [
-            { title: "What is Liquidity?", duration: "8 min" },
-            { title: "Buy-Side Liquidity (BSL)", duration: "12 min" },
-            { title: "Sell-Side Liquidity (SSL)", duration: "12 min" },
-            { title: "Liquidity Grabs & Stop Hunts", duration: "15 min" },
-            { title: "Liquidity Pools", duration: "10 min" },
-            { title: "Trading Liquidity Sweeps", duration: "18 min" }
-        ]
-    },
-    {
-        section: "Market Structure",
-        lessons: [
-            { title: "Break of Structure (BOS)", duration: "12 min" },
-            { title: "Change of Character (ChoCH)", duration: "14 min" },
-            { title: "Market Structure Shifts (MSS)", duration: "15 min" },
-            { title: "Internal vs External Structure", duration: "16 min" },
-            { title: "Identifying Trend Reversals", duration: "18 min" }
-        ]
-    },
-    {
-        section: "Advanced Concepts",
-        lessons: [
-            { title: "Premium & Discount Zones", duration: "14 min" },
-            { title: "Optimal Trade Entry (OTE)", duration: "16 min" },
-            { title: "Institutional Reference Points", duration: "12 min" },
-            { title: "Kill Zones & Session Trading", duration: "15 min" },
-            { title: "Confluence & Multi-Timeframe Analysis", duration: "20 min" }
-        ]
-    },
-    {
-        section: "Putting It All Together",
-        lessons: [
-            { title: "Complete Trade Setup Checklist", duration: "18 min" },
-            { title: "Risk Management for SMC", duration: "15 min" },
-            { title: "Common Mistakes to Avoid", duration: "12 min" },
-            { title: "Live Trade Examples", duration: "25 min" },
-            { title: "Building Your Trading Plan", duration: "20 min" }
-        ]
-    }
-];
+import { smcCurriculum as curriculum } from "@/lib/curriculum";
 
 export default function SmartMoneyConceptsPage() {
     const totalLessons = curriculum.reduce((acc, section) => acc + section.lessons.length, 0);
@@ -174,7 +101,7 @@ export default function SmartMoneyConceptsPage() {
                                 {section.lessons.map((lesson, lessonIndex) => (
                                     <Link
                                         key={lesson.title}
-                                        href={`/learn/smart-money-concepts/${sectionIndex + 1}/${lessonIndex + 1}`}
+                                        href={`/learn/smart-money-concepts/${lesson.slug}`}
                                         className="group block px-6 py-4 hover:bg-slate-50 transition-colors duration-200"
                                     >
                                         <div className="flex items-center gap-4">
