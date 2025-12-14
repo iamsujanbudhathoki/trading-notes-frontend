@@ -31,7 +31,10 @@ export function Footer() {
                         <ul className="space-y-3 text-sm text-slate-500">
                             <FooterLink href="/glossary">Trading Glossary</FooterLink>
                             <FooterLink href="/brokers">Broker Reviews</FooterLink>
-                            <FooterLink href="/tools">Trading Tools</FooterLink>
+                            <FooterLink href="/tools">
+                                Trader's Toolbox
+                                <span className="ml-2 px-1.5 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded-sm">Free</span>
+                            </FooterLink>
                             <FooterLink href="/about">About Us</FooterLink>
                         </ul>
                     </div>

@@ -43,11 +43,11 @@ export function LearningPathsSection() {
                 <LevelCard
                     level="Level 3"
                     title="Psychology & Edge"
-                    description="Master your mind. Advanced risk management and building a sustainable trading plan."
+                    description="Master your mind. Advanced risk management is the only holy grail in trading."
                     icon={BrainCircuit}
                     href="/learn/psychology"
                     color="indigo"
-                    bgImage="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop"
+                    bgImage="/risk-management.jpg"
                 />
             </div>
         </section>

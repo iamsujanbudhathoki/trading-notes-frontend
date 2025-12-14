@@ -1,13 +1,10 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { LearningPathsSection } from "@/components/home/LearningPathsSection";
-import { TradingToolsSection } from "@/components/home/TradingToolsSection";
 import { LatestArticlesSection } from "@/components/home/LatestArticlesSection";
 import { SMCICTSection } from "@/components/home/SMCICTSection";
-import { CandlestickPatternsSection } from "@/components/home/CandlestickPatternsSection";
-import { PhilosophySection } from "@/components/home/PhilosophySection";
+import { BrowseCategoriesSection } from "@/components/home/BrowseCategoriesSection";
 import { StatsSection } from "@/components/home/StatsSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import Link from "next/link";
+import { CommunityCTA } from "@/components/home/CommunityCTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,46 +20,33 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="w-full bg-cream">
-      {/* Hero Section */}
+    <div className="w-full bg-white">
+      {/* Hero Section - The Hook */}
       <HeroSection />
 
-      {/* Stats Section - Build Trust */}
+      {/* Stats Section - The Authority */}
       <StatsSection />
 
-      {/* Philosophy Section */}
-      <PhilosophySection />
-
-      {/* Learning Paths - Main value proposition */}
-      <div className="bg-cream border-t border-slate-100">
-        <LearningPathsSection />
-      </div>
-
-      {/* SMC & ICT Trading - Featured Methodology */}
-      <div className="bg-white border-y border-slate-100">
+      {/* SMC & ICT Trading - The Core Value */}
+      <div className="bg-white border-b border-slate-100">
         <SMCICTSection />
       </div>
 
-      {/* Trading Tools */}
-      <div className="bg-cream">
-        <TradingToolsSection />
-      </div>
+      {/* Categories - The Exploration */}
+      <BrowseCategoriesSection />
 
-      {/* Candlestick Patterns */}
-      <div className="bg-white border-y border-slate-100">
-        <CandlestickPatternsSection />
-      </div>
-
-      {/* Latest Articles */}
-      <div className="bg-cream">
+      {/* Latest Articles - The Fresh Content */}
+      <div className="bg-slate-50 border-y border-slate-200">
         <LatestArticlesSection />
       </div>
 
-      {/* Social Proof / Testimonials */}
-      <div className="bg-white border-t border-slate-100">
+      {/* Social Proof - The Trust */}
+      <div className="bg-white">
         <TestimonialsSection />
       </div>
 
+      {/* Final CTA - The Conversion */}
+      <CommunityCTA />
     </div>
   );
 }

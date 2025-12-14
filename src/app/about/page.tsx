@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { BookOpen, Target, Zap, Users, ShieldCheck, Award } from "lucide-react";
+import { PhilosophySection } from "@/components/home/PhilosophySection";
 
 export const metadata: Metadata = {
     title: "About Us | Our Mission & Values",
@@ -130,6 +131,8 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
+
+            <PhilosophySection />
         </div>
     );
 }
