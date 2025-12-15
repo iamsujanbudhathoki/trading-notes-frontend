@@ -3,7 +3,7 @@
 import { use, useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Clock, Calendar, Share2, Bookmark, ChevronDown, PlayCircle, CheckCircle2, Lock, Twitter, Linkedin, Facebook, Link as LinkIcon } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Share2, Bookmark, ChevronDown, PlayCircle, CheckCircle2, Lock, Twitter, Linkedin, Facebook, Link as LinkIcon, Sparkles } from "lucide-react";
 import { notFound } from "next/navigation";
 import { articles, getArticleBySlug, Article } from "@/lib/articles";
 import { CommentSection } from "@/components/article/CommentSection";
@@ -26,7 +26,7 @@ function ReadingProgress() {
     }, []);
 
     return (
-        <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-50">
+        <div className="fixed top-0 left-0 w-full h-1 z-50 bg-transparent">
             <div
                 className="h-full bg-copper-500 transition-all duration-150 ease-out"
                 style={{ width: `${progress}%` }}
@@ -65,7 +65,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
     }
 
     if (loading || !article) {
-        return <div className="min-h-screen bg-white flex items-center justify-center">Loading...</div>;
+        return <div className="min-h-screen bg-white flex items-center justify-center font-serif text-slate-400 animate-pulse">Loading Entry...</div>;
     }
 
     const handleShare = (platform: string) => {
@@ -91,81 +91,100 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
     };
 
     return (
-        <div className="bg-white min-h-screen pb-32">
+        <div className="bg-white min-h-screen pb-32 selection:bg-copper-100 selection:text-copper-900">
             <ReadingProgress />
 
-            {/* Hero */}
-            <div className="relative h-[50vh] w-full overflow-hidden">
-                <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+            {/* Premium Hero Section - Contained Width */}
+            <div className="relative w-full bg-slate-950 overflow-hidden">
+                <div className="max-w-[1600px] mx-auto">
+                    <div className="relative h-[70vh] min-h-[600px] max-h-[800px]">
+                        {/* Background Image - Contained */}
+                        <Image
+                            src={article.image}
+                            alt={article.title}
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                        
+                        {/* Clean Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950/90" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/20 to-transparent" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 lg:p-16 max-w-[1400px] mx-auto">
-                    <div className="max-w-3xl">
-                        <div className="flex items-center gap-2 text-xs font-bold text-copper-400 mb-4 uppercase tracking-wider">
-                            <span className="w-1.5 h-1.5 rounded-full bg-copper-500" />
-                            {article.category}
-                        </div>
-                        <h1 className="font-serif font-extrabold text-3xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight tracking-tight">
-                            {article.title}
-                        </h1>
-                        <div className="flex items-center gap-4 text-white/70 text-xs uppercase tracking-wider font-medium">
-                            <div className="flex items-center gap-1.5">
-                                <Calendar className="w-3.5 h-3.5" />
-                                <span>{article.date}</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <Clock className="w-3.5 h-3.5" />
-                                <span>{article.readTime}</span>
+                        {/* Content Container - Properly Aligned */}
+                        <div className="absolute inset-0 flex items-end">
+                            <div className="w-full px-6 md:px-12 lg:px-16 pb-12 md:pb-16 lg:pb-20">
+                                <div className="max-w-4xl">
+                                    {/* Category Badge - Refined */}
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <span className="px-4 py-1.5 rounded-full bg-copper-500/20 backdrop-blur-sm border border-copper-400/30 text-copper-300 text-xs font-bold uppercase tracking-widest">
+                                            {article.category}
+                                        </span>
+                                    </div>
+
+                                    {/* Title - Better Hierarchy */}
+                                    <h1 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 md:mb-8 leading-[1.1] tracking-tight max-w-5xl">
+                                        {article.title}
+                                    </h1>
+
+                                    {/* Meta Information - Clean & Minimal */}
+                                    <div className="flex flex-wrap items-center gap-5 text-white/80 text-sm">
+                                        <div className="flex items-center gap-2">
+                                            <Calendar className="w-4 h-4 text-copper-400" />
+                                            <span className="font-medium">{article.date}</span>
+                                        </div>
+                                        <div className="w-1 h-1 rounded-full bg-white/30" />
+                                        <div className="flex items-center gap-2">
+                                            <Clock className="w-4 h-4 text-copper-400" />
+                                            <span className="font-medium">{article.readTime}</span>
+                                        </div>
+                                        <div className="w-1 h-1 rounded-full bg-white/30" />
+                                        <div className="flex items-center gap-2.5">
+                                            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-copper-400 to-copper-600 flex items-center justify-center text-[10px] font-bold text-white">
+                                                TN
+                                            </div>
+                                            <span className="font-medium">TradeNotes Team</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* Meta Bar */}
-            <div className="border-b border-slate-100 bg-white sticky top-0 z-30 h-14" />
+            {/* Main Content Layout */}
+            <main className={`max-w-[1400px] mx-auto px-6 pt-16 lg:pt-24 grid gap-16 relative ${article.isPartOfCourse ? 'grid-cols-1 lg:grid-cols-[80px_1fr_350px]' : 'grid-cols-1 lg:grid-cols-[80px_1fr_80px]'}`}>
 
-            {/* Main Content */}
-            <main className={`max-w-[1400px] mx-auto px-6 pt-12 grid gap-8 ${article.isPartOfCourse ? 'grid-cols-1 lg:grid-cols-[80px_1fr_300px]' : 'grid-cols-1 lg:grid-cols-[80px_1fr]'}`}>
-
-                {/* Left Sidebar */}
-                <aside className="hidden lg:block h-full">
-                    <div className="sticky top-32 flex flex-col items-center gap-6">
-                        <Link href="/articles" className="group flex flex-col items-center gap-1 text-slate-400 hover:text-copper-600 transition-colors relative">
-                            <div className="p-3 rounded-full bg-slate-50 group-hover:bg-copper-50 transition-colors">
+                {/* Left Floating Navigation & Share */}
+                <aside className="hidden lg:flex flex-col items-center h-full">
+                    <div className="sticky top-32 flex flex-col items-center gap-8">
+                        <Link href="/articles" className="group flex flex-col items-center gap-2 text-slate-400 hover:text-slate-900 transition-colors relative">
+                            <div className="p-3 rounded-full bg-white border border-slate-200 group-hover:border-copper-500 group-hover:text-copper-600 transition-all duration-300">
                                 <ArrowLeft className="w-5 h-5" />
                             </div>
-                            <span className="text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute left-14 bg-slate-800 text-white px-2 py-1 rounded shadow-sm whitespace-nowrap z-50 pointer-events-none">
-                                Back
-                            </span>
                         </Link>
 
-                        <div className="w-8 h-px bg-slate-200" />
+                        <div className="w-px h-12 bg-slate-200" />
 
-                        <div className="flex flex-col gap-3 relative" ref={shareMenuRef}>
+                        <div className="flex flex-col gap-4 relative" ref={shareMenuRef}>
                             <ActionButton icon={Share2} label="Share" onClick={() => setShowShareMenu(!showShareMenu)} />
                             {showShareMenu && (
-                                <div className="absolute left-14 top-0 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-1 z-50">
-                                    <button onClick={() => handleShare('twitter')} className="w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 cursor-pointer">
+                                <div className="absolute left-14 top-0 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                                    <button onClick={() => handleShare('twitter')} className="w-full px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 font-medium transition-colors">
                                         <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                                         Twitter
                                     </button>
-                                    <button onClick={() => handleShare('linkedin')} className="w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 cursor-pointer">
+                                    <button onClick={() => handleShare('linkedin')} className="w-full px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 font-medium transition-colors">
                                         <Linkedin className="w-4 h-4 text-[#0A66C2]" />
                                         LinkedIn
                                     </button>
-                                    <button onClick={() => handleShare('facebook')} className="w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 cursor-pointer">
+                                    <button onClick={() => handleShare('facebook')} className="w-full px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 font-medium transition-colors">
                                         <Facebook className="w-4 h-4 text-[#1877F2]" />
                                         Facebook
                                     </button>
-                                    <button onClick={() => handleShare('copy')} className="w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 cursor-pointer">
-                                        <LinkIcon className="w-4 h-4 text-slate-600" />
+                                    <button onClick={() => handleShare('copy')} className="w-full px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-3 font-medium transition-colors border-t border-slate-100 mt-1 pt-2">
+                                        <LinkIcon className="w-4 h-4 text-slate-400" />
                                         Copy Link
                                     </button>
                                 </div>
@@ -175,62 +194,61 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                     </div>
                 </aside>
 
-                <article className="min-w-0 max-w-[680px] mx-auto w-full">
+                {/* Article Content */}
+                <article className="min-w-0 max-w-[760px] mx-auto w-full">
 
-                    <p className="text-base text-slate-600 font-sans leading-relaxed mb-8 border-l-4 border-copper-500 pl-5">
+                    <p className="text-2xl md:text-3xl text-slate-600 font-serif leading-relaxed mb-16 first-letter:text-6xl first-letter:font-bold first-letter:text-slate-900 first-letter:mr-3 first-letter:float-left">
                         {article.description}
                     </p>
 
                     <div
-                        className="max-w-none text-base text-slate-700 leading-relaxed font-sans
-                        [&>h1]:font-serif [&>h1]:font-bold [&>h1]:text-3xl [&>h1]:text-slate-900 [&>h1]:mt-10 [&>h1]:mb-6
-                        [&>h2]:font-serif [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:text-slate-900 [&>h2]:mt-8 [&>h2]:mb-4
-                        [&>h3]:font-serif [&>h3]:font-bold [&>h3]:text-xl [&>h3]:text-slate-900 [&>h3]:mt-6 [&>h3]:mb-3
-                        [&>p]:text-base [&>p]:text-slate-700 [&>p]:leading-7 [&>p]:mb-6
-                        [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul]:space-y-2
-                        [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-6 [&>ol]:space-y-2
-                        [&>li]:text-slate-700 [&>li]:leading-7
-                        [&>strong]:text-slate-900 [&>strong]:font-bold
-                        [&>a]:text-copper-600 [&>a]:font-bold [&>a]:no-underline hover:[&>a]:text-copper-700 hover:[&>a]:underline
-                        [&>blockquote]:border-l-4 [&>blockquote]:border-copper-500 [&>blockquote]:bg-slate-50 [&>blockquote]:py-4 [&>blockquote]:px-6 [&>blockquote]:my-8 [&>blockquote]:rounded-r-lg [&>blockquote]:italic [&>blockquote]:text-slate-700
-                        [&>img]:rounded-xl [&>img]:shadow-lg [&>img]:my-8 [&>img]:w-full [&>img]:border [&>img]:border-slate-100
-                        [&>code]:bg-slate-100 [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>code]:text-slate-800
-                        [&>pre]:bg-slate-900 [&>pre]:p-4 [&>pre]:rounded-xl [&>pre]:overflow-x-auto [&>pre]:my-6 [&>pre]:text-white"
+                        className="prose prose-slate prose-lg max-w-none
+                        prose-headings:font-serif prose-headings:font-bold prose-headings:text-slate-900 prose-headings:tracking-tight
+                        prose-h1:text-4xl prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8
+                        prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6
+                        prose-p:font-serif prose-p:text-slate-700 prose-p:leading-[2] prose-p:mb-8 prose-p:text-[1.15rem]
+                        prose-a:text-copper-600 prose-a:font-bold prose-a:no-underline hover:prose-a:text-copper-700 hover:prose-a:underline
+                        prose-strong:text-slate-900 prose-strong:font-bold
+                        prose-li:font-serif prose-li:text-slate-700 prose-li:marker:text-copper-500
+                        prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-slate-800 prose-blockquote:bg-slate-50 prose-blockquote:border-l-4 prose-blockquote:border-copper-500 prose-blockquote:pl-8 prose-blockquote:py-6 prose-blockquote:pr-8 prose-blockquote:rounded-r-xl prose-blockquote:my-12
+                        prose-img:rounded-xl prose-img:shadow-2xl prose-img:shadow-slate-200 prose-img:my-12
+                        prose-hr:border-slate-100 prose-hr:my-16"
                         dangerouslySetInnerHTML={{ __html: article.content }}
                     />
 
-
-
-                    <div className="mt-8 pt-8 border-t border-slate-100">
-                        <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="mt-20 pt-12 border-t border-slate-100">
+                        <div className="flex flex-wrap gap-3 mb-12">
                             <Tag label={article.category} />
-                            <Tag label="Trading" />
+                            <Tag label="Trading Strategy" />
+                            <Tag label="Technical Analysis" />
                         </div>
                     </div>
 
                     {/* Comment Section */}
-                    <CommentSection />
+                    <div className="mt-12">
+                        <CommentSection />
+                    </div>
 
                 </article>
 
                 {/* Right Sidebar - Course only */}
-                {article.isPartOfCourse && article.lessonNumber && article.totalLessons && (
-                    <aside className="hidden lg:block">
-                        <div className="sticky top-24">
-                            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                {article.isPartOfCourse && article.lessonNumber && article.totalLessons ? (
+                    <aside className="hidden lg:block h-full">
+                        <div className="sticky top-32">
+                            <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
                                 <div
-                                    className="p-4 bg-slate-50 border-b border-slate-100 flex items-center justify-between cursor-pointer"
+                                    className="p-6 bg-slate-50 border-b border-slate-200 flex items-center justify-between cursor-pointer hover:bg-slate-100 transition-colors"
                                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                                 >
                                     <div>
-                                        <h4 className="font-sans font-bold text-slate-900 text-xs uppercase">Curriculum</h4>
-                                        <div className="text-xs text-slate-500 mt-1">{article.totalLessons} Lessons</div>
+                                        <h4 className="font-serif font-bold text-slate-900 text-base">Course Curriculum</h4>
+                                        <div className="text-xs text-slate-500 mt-1.5 font-medium uppercase tracking-wider">{article.totalLessons} Lessons</div>
                                     </div>
-                                    <ChevronDown className={`w-4 h-4 transition-transform ${isSidebarOpen ? 'rotate-180' : ''}`} />
+                                    <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${isSidebarOpen ? 'rotate-180' : ''}`} />
                                 </div>
 
                                 {isSidebarOpen && (
-                                    <div className="max-h-[400px] overflow-y-auto">
+                                    <div className="max-h-[60vh] overflow-y-auto bg-white">
                                         <LessonItem number={1} title="Introduction" duration="8 min" status="completed" slug="introduction-to-technical-analysis" />
                                         <LessonItem number={2} title="Market Structure" duration="15 min" status="completed" slug="market-structure-basics" />
                                         <LessonItem number={3} title="Fair Value Gaps" duration="12 min" status={article.lessonNumber === 3 ? 'current' : 'completed'} slug="understanding-fair-value-gaps" />
@@ -242,13 +260,23 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                             </div>
                         </div>
                     </aside>
+                ) : (
+                    <div className="hidden lg:block" />
                 )}
 
             </main>
 
             {/* Related Articles - Full Width Section - only for standalone */}
             {!article.isPartOfCourse && (
-                <RelatedArticles currentSlug={article.slug} articles={articles} />
+                <div className="mt-32 bg-slate-50 py-24">
+                    <div className="max-w-[1400px] mx-auto px-6">
+                        <div className="flex items-center gap-4 mb-12">
+                            <Sparkles className="w-6 h-6 text-copper-500" />
+                            <h2 className="font-serif text-3xl font-bold text-slate-900">Continue Reading</h2>
+                        </div>
+                        <RelatedArticles currentSlug={article.slug} articles={articles} />
+                    </div>
+                </div>
             )}
         </div>
     );
@@ -256,11 +284,11 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
 
 function ActionButton({ icon: Icon, label, onClick }: { icon: any, label: string, onClick: () => void }) {
     return (
-        <button onClick={onClick} className="group flex flex-col items-center gap-1 text-slate-400 hover:text-copper-600 transition-colors relative cursor-pointer">
-            <div className="p-3 rounded-full bg-slate-50 group-hover:bg-copper-50 transition-colors">
+        <button onClick={onClick} className="group flex flex-col items-center gap-1 text-slate-400 hover:text-slate-900 transition-colors relative cursor-pointer">
+            <div className="p-3 rounded-full bg-white border border-slate-200 group-hover:border-copper-500 group-hover:text-copper-600 transition-all duration-300">
                 <Icon className="w-5 h-5" />
             </div>
-            <span className="text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute left-14 bg-slate-800 text-white px-2 py-1 rounded shadow-sm whitespace-nowrap z-50 pointer-events-none">
+            <span className="text-[10px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity absolute left-14 bg-slate-900 text-white px-3 py-1.5 rounded-lg whitespace-nowrap z-50 pointer-events-none">
                 {label}
             </span>
         </button>
@@ -269,7 +297,7 @@ function ActionButton({ icon: Icon, label, onClick }: { icon: any, label: string
 
 function Tag({ label }: { label: string }) {
     return (
-        <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">
+        <span className="px-5 py-2 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full hover:border-copper-500 hover:text-copper-600 transition-all cursor-default">
             {label}
         </span>
     );
@@ -277,28 +305,28 @@ function Tag({ label }: { label: string }) {
 
 function LessonItem({ number, title, duration, status, slug }: { number: number, title: string, duration: string, status: 'completed' | 'current' | 'locked', slug: string }) {
     const content = (
-        <div className={`p-4 flex items-start gap-3 border-b border-slate-50 transition-colors ${status === 'current' ? 'bg-copper-50' : 'hover:bg-slate-50'}`}>
-            <div className="mt-0.5">
-                {status === 'completed' && <CheckCircle2 className="w-4 h-4 text-green-500" />}
-                {status === 'current' && <PlayCircle className="w-4 h-4 text-copper-500" />}
+        <div className={`p-5 flex items-start gap-4 border-b border-slate-100 transition-all duration-200 ${status === 'current' ? 'bg-copper-50/30 border-l-4 border-l-copper-500' : 'hover:bg-slate-50 border-l-4 border-l-transparent'}`}>
+            <div className="mt-0.5 shrink-0">
+                {status === 'completed' && <CheckCircle2 className="w-5 h-5 text-green-500" />}
+                {status === 'current' && <PlayCircle className="w-5 h-5 text-copper-500 fill-copper-100" />}
                 {status === 'locked' && <Lock className="w-4 h-4 text-slate-300" />}
             </div>
             <div>
-                <div className={`text-sm font-medium ${status === 'current' ? 'text-copper-700' : 'text-slate-700'}`}>
+                <div className={`text-sm font-bold font-serif leading-tight mb-1.5 ${status === 'current' ? 'text-copper-700' : 'text-slate-700'}`}>
                     {number}. {title}
                 </div>
-                <div className="text-xs text-slate-400">{duration}</div>
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{duration}</div>
             </div>
         </div>
     );
 
     if (status === 'locked') {
-        return <div className="cursor-not-allowed opacity-75">{content}</div>;
+        return <div className="cursor-not-allowed opacity-60">{content}</div>;
     }
 
     return (
-        <Link href={`/articles/${slug}`} className="block">
+        <a href={`/articles/${slug}`} className="block group">
             {content}
-        </Link>
+        </a>
     );
 }

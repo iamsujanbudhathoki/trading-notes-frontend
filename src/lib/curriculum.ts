@@ -1,4 +1,18 @@
-export const smcCurriculum = [
+
+export type Lesson = {
+    title: string;
+    duration: string;
+    slug: string;
+};
+
+export type Section = {
+    section: string;
+    lessons: Lesson[];
+};
+
+export type Curriculum = Section[];
+
+const smcCurriculum: Curriculum = [
     {
         section: "Foundation",
         lessons: [
@@ -73,12 +87,95 @@ export const smcCurriculum = [
     }
 ];
 
-export function getLessonBySlug(slug: string) {
-    for (const section of smcCurriculum) {
+// Placeholder for other categories
+const placeholderCurriculum: Curriculum = [
+    {
+        section: "Introduction",
+        lessons: [
+            { title: "Introduction to the Concept", duration: "5 min", slug: "introduction" },
+            { title: "Core Principles", duration: "10 min", slug: "core-principles" }
+        ]
+    }
+];
+
+const curricula: Record<string, Curriculum> = {
+    "smart-money-concepts": smcCurriculum,
+    "price-action": placeholderCurriculum,
+    "chart-patterns": placeholderCurriculum,
+    "indicators": placeholderCurriculum,
+    "volume-analysis": placeholderCurriculum,
+    "support-resistance": placeholderCurriculum,
+    "candlestick-patterns": placeholderCurriculum,
+    "market-structure": placeholderCurriculum, // If it's a separate category
+    "wyckoff": placeholderCurriculum
+};
+
+export const categoryMetadata: Record<string, { title: string; description: string; color: string }> = {
+    "smart-money-concepts": {
+        title: "Smart Money Concepts",
+        description: "Master institutional trading methodology. Learn how banks and institutions move the market.",
+        color: "#B85C38"
+    },
+    "price-action": {
+        title: "Price Action Trading",
+        description: "Trade without indicators using support, resistance, and candlestick patterns.",
+        color: "#8B5CF6"
+    },
+    "chart-patterns": {
+        title: "Chart Patterns",
+        description: "Identify and trade head & shoulders, triangles, flags, and more.",
+        color: "#10B981"
+    },
+    "indicators": {
+        title: "Indicator-Based Analysis",
+        description: "Master RSI, MACD, Moving Averages, Bollinger Bands, and more.",
+        color: "#3B82F6"
+    },
+    "volume-analysis": {
+        title: "Volume Analysis",
+        description: "Understand volume profiles, accumulation, distribution, and orderflow.",
+        color: "#F59E0B"
+    },
+    "support-resistance": {
+        title: "Support & Resistance",
+        description: "Master horizontal levels, trend lines, and dynamic S/R.",
+        color: "#EF4444"
+    },
+    "candlestick-patterns": {
+        title: "Candlestick Patterns",
+        description: "Learn doji, engulfing, hammers, and reversal patterns.",
+        color: "#6366F1"
+    },
+    "market-structure": {
+        title: "Market Structure",
+        description: "Identify trends, reversals, and market phases.",
+        color: "#EC4899"
+    },
+    "wyckoff": {
+        title: "Wyckoff Method",
+        description: "Accumulation, distribution, and market cycles.",
+        color: "#14B8A6"
+    }
+};
+
+export function getCurriculum(category: string): Curriculum | null {
+    return curricula[category] || null;
+}
+
+export function getLesson(category: string, slug: string) {
+    const curriculum = getCurriculum(category);
+    if (!curriculum) return null;
+
+    for (const section of curriculum) {
         const lesson = section.lessons.find(l => l.slug === slug);
         if (lesson) return lesson;
     }
     return null;
+}
+
+// Keep backward compatibility if needed, or just for SMC
+export function getLessonBySlug(slug: string) {
+    return getLesson("smart-money-concepts", slug);
 }
 
 export function getLessonContent(slug: string) {
@@ -88,6 +185,7 @@ export function getLessonContent(slug: string) {
     const commonStyles = "rounded-xl shadow-lg my-8 w-full h-auto object-cover border border-slate-100";
 
     switch (slug) {
+        // --- SMART MONEY CONCEPTS ---
         case "what-is-smart-money":
             return `
                 <p class="lead">
@@ -96,16 +194,19 @@ export function getLessonContent(slug: string) {
                 <img src="/ict-vs-smc.jpg" alt="SMC vs Retail" class="${commonStyles}" />
                 <h3>The Retail Trap</h3>
                 <p>
-                    Most retail traders are taught to trade support and resistance, trendlines, and chart patterns. Institutions know this. They use this liquidity to fuel their own moves.
+                    Most retail traders are taught to trade support and resistance, trendlines, and chart patterns. Institutions know this. They use this liquidity to fuel their own moves. When you buy at support, who is selling to you? The Smart Money.
                 </p>
+                <blockquote>
+                    "If you don't know where the liquidity is, you are the liquidity."
+                </blockquote>
                 <h3>Institutional Footprints</h3>
                 <p>
                     Smart money leaves clues. Large orders cannot be hidden. We look for:
                 </p>
                 <ul>
-                    <li><strong>Displacement:</strong> Sudden, strong moves that break structure.</li>
+                    <li><strong>Displacement:</strong> Sudden, strong moves that break structure, indicating intent.</li>
                     <li><strong>Inefficiencies:</strong> Fair Value Gaps (FVG) where price was delivered too quickly.</li>
-                    <li><strong>Liquidity:</strong> Areas where stop-losses are clustered.</li>
+                    <li><strong>Liquidity:</strong> Areas where stop-losses are clustered (Equal Highs/Lows).</li>
                 </ul>
             `;
 
@@ -124,6 +225,11 @@ export function getLessonContent(slug: string) {
                 <p>
                     When price breaks a previous high in an uptrend (or low in a downtrend) and closes beyond it, we have a Break of Structure. This confirms the trend continuation.
                 </p>
+                <h3>Key Rules</h3>
+                <ul>
+                    <li>Always wait for a candle close to confirm a BOS. Wicks are often just liquidity grabs.</li>
+                    <li>Map structure on higher timeframes (4H, Daily) for direction, and lower timeframes (15m, 1h) for entry.</li>
+                </ul>
             `;
 
         case "change-of-character":
@@ -136,6 +242,14 @@ export function getLessonContent(slug: string) {
                 <p>
                     Unlike a Break of Structure (BOS) which signals continuation, a ChoCH signals a shift in momentum. It is often found at Higher Timeframe (HTF) Points of Interest (POI).
                 </p>
+                <h3>Valid vs Invalid ChoCH</h3>
+                <p>
+                    Not every structural break is a reversal. A valid ChoCH must happen after:
+                </p>
+                <ul>
+                    <li>Price taps into a higher timeframe POI (Order Block, FVG).</li>
+                    <li>A liquidity sweep of a major high or low.</li>
+                </ul>
             `;
 
         case "understanding-institutional-orderflow":
@@ -147,6 +261,10 @@ export function getLessonContent(slug: string) {
                 <h3>Following the Money</h3>
                 <p>
                     We don't try to predict where price will go; we react to where the money is flowing. When order flow is bullish, we look for longs at discount prices. When bearish, we look for shorts at premium prices.
+                </p>
+                <h3>Order Flow vs Market Structure</h3>
+                <p>
+                    Market structure tells you <em>what</em> happened. Order flow tells you <em>why</em> it happened. Structure can be bearish while order flow is bullish (pullback phase).
                 </p>
             `;
 
@@ -162,6 +280,15 @@ export function getLessonContent(slug: string) {
                 <p>
                     Price often returns to these gaps to "rebalance" the market. These areas act as high-probability support or resistance zones.
                 </p>
+                <h3>Trading the FVG</h3>
+                <p>
+                    Don't blindly trade every FVG. Look for:
+                </p>
+                <ul>
+                    <li>FVGs that caused a Break of Structure (BOS).</li>
+                    <li>FVGs located in Premium (for shorts) or Discount (for longs) zones.</li>
+                    <li>FVGs that align with other confluences like Order Blocks.</li>
+                </ul>
             `;
 
         case "risk-management-smc":
@@ -174,15 +301,83 @@ export function getLessonContent(slug: string) {
                 <p>
                     Your primary job as a trader is to protect your capital. Never risk more than 1-2% of your account on a single trade.
                 </p>
+                <h3>The Mathematics of Ruin</h3>
+                <p>
+                    If you lose 50% of your account, you need a 100% gain just to break even. This is why avoiding large drawdowns is crucial.
+                </p>
+                <ul>
+                    <li><strong>Risk per trade:</strong> 0.5% to 1%</li>
+                    <li><strong>Daily Loss Limit:</strong> 2-3%</li>
+                    <li><strong>Max Drawdown:</strong> 5-10% (Stop trading and review)</li>
+                </ul>
+            `;
+
+        // --- PRICE ACTION ---
+        case "introduction":
+        case "core-principles":
+            return `
+                <p class="lead">
+                    Price Action trading is the art of reading the raw price movements on a chart, without the noise of lagging indicators. It is the purest form of technical analysis.
+                </p>
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop" alt="Price Action Chart" class="${commonStyles}" />
+                <h3>Why Price Action?</h3>
+                <p>
+                    Indicators are derived from price. By the time an indicator signals a move, price has often already moved. Price action gets you in earlier and with better risk-to-reward.
+                </p>
+                <h3>The Three Pillars</h3>
+                <ul>
+                    <li><strong>Trend:</strong> Is the market moving up, down, or sideways?</li>
+                    <li><strong>Levels:</strong> Where are the key Support and Resistance zones?</li>
+                    <li><strong>Signals:</strong> What are the candlesticks telling us at these levels?</li>
+                </ul>
+            `;
+
+        // --- CHART PATTERNS ---
+        case "head-and-shoulders":
+        case "double-top-bottom":
+            return `
+                <p class="lead">
+                    Chart patterns are recurring formations that signal potential market moves. They represent the collective psychology of the market participants.
+                </p>
+                <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?w=800&auto=format&fit=crop" alt="Chart Patterns" class="${commonStyles}" />
+                <h3>Reversal Patterns</h3>
+                <p>
+                    These patterns indicate that the current trend is losing momentum and a reversal is likely.
+                </p>
+                <ul>
+                    <li><strong>Head and Shoulders:</strong> A classic bearish reversal pattern.</li>
+                    <li><strong>Double Top:</strong> Indicates resistance is holding strong.</li>
+                </ul>
+                <blockquote>
+                    "History repeats itself because human psychology remains the same."
+                </blockquote>
+            `;
+
+        // --- INDICATORS ---
+        case "rsi-divergence":
+        case "moving-averages":
+            return `
+                <p class="lead">
+                    While price is king, indicators can serve as valuable tools for confirmation and filtering. The key is to use them as servants, not masters.
+                </p>
+                <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&auto=format&fit=crop" alt="Technical Indicators" class="${commonStyles}" />
+                <h3>RSI Divergence</h3>
+                <p>
+                    Divergence occurs when price makes a new high, but the RSI makes a lower high. This signals weakening momentum and a potential reversal.
+                </p>
+                <h3>Moving Averages</h3>
+                <p>
+                    Moving averages smooth out price data to identify the trend direction. The 200 EMA is widely watched by institutions as a dynamic support/resistance level.
+                </p>
             `;
 
         default:
             // Dynamic fallback for other lessons
             return `
                 <p class="lead">
-                    This lesson covers the advanced mechanics of <strong>${slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</strong>. We will explore how this concept integrates into the broader Smart Money framework.
+                    This lesson covers the advanced mechanics of <strong>${slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</strong>. We will explore how this concept integrates into the broader trading framework.
                 </p>
-                <img src="/ict_image.jpg" alt="ICT Concepts" class="${commonStyles}" />
+                <img src="/ict_image.jpg" alt="Trading Concepts" class="${commonStyles}" />
                 <h3>Core Concepts</h3>
                 <p>
                     Mastering this topic requires patience and observation. We focus on:
@@ -195,6 +390,16 @@ export function getLessonContent(slug: string) {
                 <p>
                     As you study this section, pay close attention to the reaction of price at key reference points.
                 </p>
+                <blockquote>
+                    "The market is a device for transferring money from the impatient to the patient." - Warren Buffett
+                </blockquote>
+                <h3>Practical Application</h3>
+                <p>
+                    Open your charts and try to identify 5 examples of this concept from the past week. Backtesting is the only way to build true confidence.
+                </p>
             `;
     }
 }
+
+// Export smcCurriculum for backward compatibility if needed, but prefer getCurriculum
+export { smcCurriculum };

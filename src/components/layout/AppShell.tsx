@@ -10,7 +10,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     const isReadingMode = pathname?.startsWith("/articles/") && pathname !== "/articles";
     // Check for lesson pages (e.g., /learn/smart-money-concepts/some-slug)
     // We want to exclude the main listing page /learn/smart-money-concepts
-    const isLessonMode = pathname?.includes("/learn/smart-money-concepts/") && pathname.split("/").length > 3;
+    const isLessonMode = pathname?.startsWith("/learn/") && pathname.split("/").length >= 4;
 
     return (
         <>

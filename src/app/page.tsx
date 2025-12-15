@@ -3,7 +3,6 @@ import { LatestArticlesSection } from "@/components/home/LatestArticlesSection";
 import { SMCICTSection } from "@/components/home/SMCICTSection";
 import { BrowseCategoriesSection } from "@/components/home/BrowseCategoriesSection";
 import { StatsSection } from "@/components/home/StatsSection";
-import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { CommunityCTA } from "@/components/home/CommunityCTA";
 import { Metadata } from "next";
 
@@ -38,11 +37,6 @@ export default function Home() {
       {/* Latest Articles - The Fresh Content */}
       <div className="bg-slate-50 border-y border-slate-200">
         <LatestArticlesSection />
-      </div>
-
-      {/* Social Proof - The Trust */}
-      <div className="bg-white">
-        <TestimonialsSection />
       </div>
 
       {/* Final CTA - The Conversion */}

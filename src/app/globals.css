@@ -51,9 +51,22 @@
     100% { transform: translateX(-50%); }
   }
 
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
+
+  @keyframes slide-in-top {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-slide-in-top: slide-in-top 200ms ease-out;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
 /* Custom Utilities */
@@ -125,4 +138,23 @@ a, button {
   h1 { font-size: 36px !important; letter-spacing: -0.02em; }
   h2 { font-size: 30px !important; letter-spacing: -0.01em; }
   h3 { font-size: 22px !important; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-200);
+  border-radius: 5px;
+  border: 2px solid var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-copper-500);
 }
