@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { CandlestickChart, Repeat, Calendar, BrainCircuit, ArrowRight, TrendingUp, BarChart3, Layers, BookOpen } from "lucide-react";
 
 const categories = [
@@ -10,7 +11,8 @@ const categories = [
         icon: BrainCircuit,
         href: "/learn/smart-money-concepts",
         count: "24 Articles",
-        className: "md:col-span-2 md:row-span-2 bg-slate-900 text-white border border-slate-800"
+        className: "md:col-span-2 md:row-span-2 bg-slate-900 text-white border border-slate-800",
+        image: "/structure_mapping.avif"
     },
     {
         title: "Price Action",
@@ -85,6 +87,19 @@ export function BrowseCategoriesSection() {
                                     ${!isDark ? 'hover:shadow-slate-200/50' : 'hover:shadow-slate-900/20'}
                                 `}
                             >
+                                {/* Background Image for Featured Cards */}
+                                {'image' in category && category.image && (
+                                    <>
+                                        <Image
+                                            src={category.image}
+                                            alt={category.title}
+                                            fill
+                                            className="object-cover opacity-30 group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/40" />
+                                    </>
+                                )}
+
                                 <div className="relative z-10">
                                     <div className={`
                                         w-10 h-10 rounded-lg flex items-center justify-center mb-6

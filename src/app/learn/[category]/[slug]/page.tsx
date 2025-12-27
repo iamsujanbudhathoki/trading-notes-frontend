@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { use, useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ChevronRight, PlayCircle, CheckCircle2, Lock, Menu, X, Clock, BookOpen, Calendar, Check, ArrowRight, Maximize2, Minimize2 } from "lucide-react";
+import { ArrowLeft, ChevronRight, ChevronDown, PlayCircle, CheckCircle2, Lock, Menu, X, Clock, BookOpen, Calendar, Check, ArrowRight, Maximize2, Minimize2 } from "lucide-react";
 import { getLesson, getLessonContent, getCurriculum, categoryMetadata } from "@/lib/curriculum";
 import { useCourseProgress } from "@/hooks/useCourseProgress";
 
@@ -59,10 +59,22 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [zoomedImage, setZoomedImage] = useState<string | null>(null);
     const [isFullscreen, setIsFullscreen] = useState(false);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [showCompletionToast, setShowCompletionToast] = useState(false);
     const mainContentRef = useRef<HTMLElement>(null);
+    const sidebarRef = useRef<HTMLElement>(null);
 
     const { markAsComplete, isCompleted, completedLessons } = useCourseProgress();
     const isLessonCompleted = lesson ? isCompleted(lesson.slug) : false;
+
+    // Wrapper to show toast when marking complete
+    const handleMarkComplete = (lessonSlug: string) => {
+        if (!isCompleted(lessonSlug)) {
+            markAsComplete(lessonSlug);
+            setShowCompletionToast(true);
+            setTimeout(() => setShowCompletionToast(false), 3000);
+        }
+    };
 
     // Get curriculum and metadata
     const curriculum = getCurriculum(category);
@@ -148,7 +160,7 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
     if (!lesson || !curriculum || !metadata) return null;
 
     return (
-        <div className="flex h-screen bg-white overflow-hidden selection:bg-copper-500/30 selection:text-copper-900">
+        <div className="flex h-screen bg-white overflow-hidden selection:bg-slate-200 selection:text-slate-900">
             {/* Image Lightbox */}
             {zoomedImage && (
                 <div
@@ -169,11 +181,38 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
                 </div>
             )}
 
+            {/* Completion Toast */}
+            {showCompletionToast && (
+                <div className="fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[60] animate-in slide-in-from-bottom-4 fade-in duration-300">
+                    <div className="flex items-center gap-3 px-5 py-3 bg-green-600 text-white rounded-full shadow-lg shadow-green-600/30">
+                        <CheckCircle2 className="w-5 h-5" />
+                        <span className="font-semibold text-sm">Lesson completed!</span>
+                    </div>
+                </div>
+            )}
+
             {/* Sidebar Navigation */}
-            <aside className={`
-                fixed inset-y-0 left-0 z-50 w-80 bg-slate-50/80 backdrop-blur-xl border-r border-slate-200/60 transform transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:translate-x-0 md:static md:h-screen md:overflow-y-auto
-                ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
-            `}>
+            <aside
+                ref={sidebarRef}
+                className={`
+                    fixed inset-y-0 left-0 z-50 w-80 bg-slate-50/80 backdrop-blur-xl border-r border-slate-200/60 transform transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:translate-x-0 md:static md:h-screen md:overflow-y-auto
+                    ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
+                `}
+                onTouchStart={(e) => {
+                    setTouchStartX(e.touches[0].clientX);
+                }}
+                onTouchEnd={(e) => {
+                    if (touchStartX !== null) {
+                        const touchEndX = e.changedTouches[0].clientX;
+                        const diff = touchStartX - touchEndX;
+                        // Swipe left to close (minimum 50px swipe)
+                        if (diff > 50) {
+                            setIsSidebarOpen(false);
+                        }
+                        setTouchStartX(null);
+                    }
+                }}
+            >
                 <div className="p-6 border-b border-slate-200/60 bg-white/50 backdrop-blur-md sticky top-0 z-10">
                     <Link href={`/learn/${category}`} className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 transition-colors group uppercase tracking-wider">
                         <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
@@ -197,63 +236,92 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
                     </div>
                 </div>
 
-                <div className="p-4 space-y-8 pb-20">
-                    {curriculum.map((section, sIdx) => (
-                        <div key={section.section}>
-                            <h3 className="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                                <span className="w-5 h-5 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[9px] text-slate-500 font-serif">{sIdx + 1}</span>
-                                {section.section}
-                            </h3>
-                            <div className="space-y-1">
-                                {section.lessons.map((l, lIdx) => {
-                                    const isActive = l.slug === lesson.slug;
-                                    const isDone = isCompleted(l.slug);
+                <div className="p-4 space-y-6 pb-20">
+                    {curriculum.map((section, sIdx) => {
+                        // Check if current lesson is in this section
+                        const sectionHasCurrentLesson = section.lessons.some(l => l.slug === lesson?.slug);
 
-                                    return (
-                                        <Link
-                                            key={l.slug}
-                                            href={`/learn/${category}/${l.slug}`}
-                                            className={`
-                                                flex items-start gap-3 p-3 rounded-xl transition-all duration-200 group relative
-                                                ${isActive
-                                                    ? 'bg-white shadow-lg shadow-slate-900/5 border border-slate-100 z-10'
-                                                    : 'hover:bg-white/60 hover:shadow-sm border border-transparent text-slate-500 hover:text-slate-900'
-                                                }
-                                            `}
-                                            onClick={() => setIsSidebarOpen(false)}
-                                        >
-                                            {isActive && (
-                                                <div
-                                                    className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full"
-                                                    style={{ backgroundColor: accentColor }}
-                                                />
-                                            )}
+                        // Count completed lessons in section
+                        const completedInSection = section.lessons.filter(l => isCompleted(l.slug)).length;
+                        const allCompleted = completedInSection === section.lessons.length;
 
-                                            <div className={`mt-0.5 shrink-0 transition-colors duration-200 ${isActive ? '' : isDone ? 'text-green-500' : 'text-slate-300 group-hover:text-slate-400'}`}
-                                                style={isActive ? { color: accentColor } : {}}
+                        return (
+                            <div key={section.section}>
+                                {/* Section Header */}
+                                <div className="flex items-center justify-between px-3 mb-2">
+                                    <div className="flex items-center gap-2">
+                                        <span className={`
+                                            w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold
+                                            ${allCompleted
+                                                ? 'bg-green-500 text-white'
+                                                : sectionHasCurrentLesson
+                                                    ? 'bg-slate-900 text-white'
+                                                    : 'bg-slate-200 text-slate-500'
+                                            }
+                                        `}>
+                                            {allCompleted ? <CheckCircle2 className="w-3 h-3" /> : sIdx + 1}
+                                        </span>
+                                        <span className={`text-xs font-bold uppercase tracking-wider ${sectionHasCurrentLesson ? 'text-slate-900' : 'text-slate-400'}`}>
+                                            {section.section}
+                                        </span>
+                                    </div>
+                                    <span className="text-[10px] text-slate-400 font-medium">
+                                        {completedInSection}/{section.lessons.length}
+                                    </span>
+                                </div>
+
+                                {/* Section Lessons - Always Visible */}
+                                <div className="space-y-1">
+                                    {section.lessons.map((l, lIdx) => {
+                                        const isActive = l.slug === lesson.slug;
+                                        const isDone = isCompleted(l.slug);
+
+                                        return (
+                                            <Link
+                                                key={l.slug}
+                                                href={`/learn/${category}/${l.slug}`}
+                                                className={`
+                                                    flex items-start gap-3 p-3 rounded-xl transition-all duration-200 group relative
+                                                    ${isActive
+                                                        ? 'bg-white shadow-lg shadow-slate-900/5 border border-slate-100 z-10'
+                                                        : 'hover:bg-white/60 hover:shadow-sm border border-transparent text-slate-500 hover:text-slate-900'
+                                                    }
+                                                `}
+                                                onClick={() => setIsSidebarOpen(false)}
                                             >
-                                                {isDone ? (
-                                                    <CheckCircle2 className="w-4 h-4" />
-                                                ) : isActive ? (
-                                                    <PlayCircle className="w-4 h-4 fill-white" />
-                                                ) : (
-                                                    <div className="w-4 h-4 rounded-full border-2 border-current" />
+                                                {isActive && (
+                                                    <div
+                                                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full"
+                                                        style={{ backgroundColor: accentColor }}
+                                                    />
                                                 )}
-                                            </div>
-                                            <div className="min-w-0">
-                                                <div className={`text-sm font-medium leading-snug mb-0.5 truncate pr-2 transition-colors duration-200 ${isActive ? 'text-slate-900' : 'text-slate-600 group-hover:text-slate-900'}`}>
-                                                    {l.title}
+
+                                                <div className={`mt-0.5 shrink-0 transition-colors duration-200 ${isActive ? '' : isDone ? 'text-green-500' : 'text-slate-300 group-hover:text-slate-400'}`}
+                                                    style={isActive ? { color: accentColor } : {}}
+                                                >
+                                                    {isDone ? (
+                                                        <CheckCircle2 className="w-4 h-4" />
+                                                    ) : isActive ? (
+                                                        <PlayCircle className="w-4 h-4 fill-white" />
+                                                    ) : (
+                                                        <div className="w-4 h-4 rounded-full border-2 border-current" />
+                                                    )}
                                                 </div>
-                                                <div className="text-[10px] text-slate-400 flex items-center gap-1">
-                                                    <span>{l.duration}</span>
+                                                <div className="min-w-0">
+                                                    <div className={`text-sm font-medium leading-snug mb-0.5 truncate pr-2 transition-colors duration-200 ${isActive ? 'text-slate-900' : 'text-slate-600 group-hover:text-slate-900'}`}>
+                                                        {l.title}
+                                                    </div>
+                                                    <div className="text-[10px] text-slate-400 flex items-center gap-1">
+                                                        <span>{l.duration}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Link>
-                                    );
-                                })}
+                                            </Link>
+                                        );
+                                    })}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </aside>
 
@@ -273,7 +341,7 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
                 {/* Reading Progress */}
                 <ReadingProgress
                     targetRef={mainContentRef}
-                    onComplete={() => markAsComplete(lesson.slug)}
+                    onComplete={() => handleMarkComplete(lesson.slug)}
                     accentColor={accentColor}
                 />
 
@@ -304,7 +372,7 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
                         </button>
 
                         <button
-                            onClick={() => markAsComplete(lesson.slug)}
+                            onClick={() => handleMarkComplete(lesson.slug)}
                             className={`
                                 flex items-center gap-2 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 border
                                 ${isLessonCompleted
@@ -452,6 +520,78 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
                     </div>
                 </div>
             </main>
+
+            {/* Mobile Sticky Bottom Navigation */}
+            <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-slate-200 shadow-lg shadow-slate-900/5 safe-area-inset-bottom">
+                {/* Progress Bar */}
+                <div className="h-1 bg-slate-100">
+                    <div
+                        className="h-full transition-all duration-300"
+                        style={{ width: `${progressPercentage}%`, backgroundColor: accentColor }}
+                    />
+                </div>
+
+                <div className="flex items-center justify-between px-4 py-3 gap-2">
+                    {/* Previous Button */}
+                    {prevLesson ? (
+                        <Link
+                            href={`/learn/${category}/${prevLesson.slug}`}
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors min-w-0 flex-1 max-w-[40%]"
+                        >
+                            <ArrowLeft className="w-4 h-4 shrink-0" />
+                            <span className="text-xs font-medium truncate">{prevLesson.title}</span>
+                        </Link>
+                    ) : (
+                        <div className="flex-1 max-w-[40%]" />
+                    )}
+
+                    {/* Center: Mark Complete */}
+                    <button
+                        onClick={() => handleMarkComplete(lesson.slug)}
+                        className={`
+                            flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shrink-0
+                            ${isLessonCompleted
+                                ? "bg-green-50 text-green-700 border border-green-200"
+                                : "text-white shadow-md"
+                            }
+                        `}
+                        style={!isLessonCompleted ? { backgroundColor: accentColor } : {}}
+                    >
+                        {isLessonCompleted ? (
+                            <>
+                                <CheckCircle2 className="w-3.5 h-3.5" />
+                                <span className="hidden xs:inline">Done</span>
+                            </>
+                        ) : (
+                            <>
+                                <Check className="w-3.5 h-3.5" />
+                                <span className="hidden xs:inline">Complete</span>
+                            </>
+                        )}
+                    </button>
+
+                    {/* Next Button */}
+                    {nextLesson ? (
+                        <Link
+                            href={`/learn/${category}/${nextLesson.slug}`}
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg text-white transition-colors min-w-0 flex-1 max-w-[40%] justify-end"
+                            style={{ backgroundColor: accentColor }}
+                        >
+                            <span className="text-xs font-medium truncate">{nextLesson.title}</span>
+                            <ArrowRight className="w-4 h-4 shrink-0" />
+                        </Link>
+                    ) : (
+                        <Link
+                            href={`/learn/${category}`}
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg text-white transition-colors min-w-0 flex-1 max-w-[40%] justify-end"
+                            style={{ backgroundColor: accentColor }}
+                        >
+                            <span className="text-xs font-medium">Finish</span>
+                            <CheckCircle2 className="w-4 h-4 shrink-0" />
+                        </Link>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }

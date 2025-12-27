@@ -11,15 +11,14 @@ export function Footer() {
                         <Link href="/" className="inline-block font-serif text-2xl font-bold text-white tracking-tight hover:text-copper-400 transition-colors">
                             TRADE<span className="text-copper-500">NOTES</span>
                         </Link>
-                        <p className="text-slate-400 leading-relaxed pr-6 font-medium text-base">
+                        <p className="text-slate-400 leading-relaxed pr-6 font-medium text-sm">
                             A personal trading journal and educational platform dedicated to demystifying institutional price action.
-                            <span className="block mt-2 text-slate-500 text-sm">Not financial advice. Just logic.</span>
+                            <span className="block mt-2 text-slate-500 text-xs">Not financial advice. Just logic & sharing my observation.</span>
                         </p>
                         <div className="flex gap-4">
                             <SocialLink href="https://discord.gg/trading" label="Discord">
                                 <DiscordIcon className="w-5 h-5" />
                             </SocialLink>
-                            {/* Add more social links here if needed */}
                         </div>
                     </div>
 

@@ -91,7 +91,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
     };
 
     return (
-        <div className="bg-white min-h-screen pb-32 selection:bg-copper-100 selection:text-copper-900">
+        <div className="bg-white min-h-screen pb-32 selection:bg-slate-200 selection:text-slate-900">
             <ReadingProgress />
 
             {/* Premium Hero Section - Contained Width */}
@@ -106,7 +106,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                             className="object-cover"
                             priority
                         />
-                        
+
                         {/* Clean Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950/90" />
                         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/20 to-transparent" />

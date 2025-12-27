@@ -72,7 +72,7 @@ export default function ArticlesPage() {
     // Actually, let's just put it in the grid.
 
     return (
-        <div className="min-h-screen bg-[#fdfdfd] selection:bg-copper-500/20 selection:text-copper-900">
+        <div className="min-h-screen bg-[#fdfdfd] selection:bg-slate-200 selection:text-slate-900">
             {/* Hero Section */}
             <section className="relative bg-white pt-32 pb-20 px-6 border-b border-slate-100">
                 <div className="max-w-[1400px] mx-auto">
@@ -149,19 +149,28 @@ export default function ArticlesPage() {
                 {/* Filters & Search */}
                 <div className="sticky top-20 z-40 bg-[#fdfdfd]/90 backdrop-blur-xl py-4 mb-12 border-b border-slate-100 shadow-sm transition-all duration-300">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => setSelectedCategory(category)}
-                                    className={`px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${selectedCategory === category
-                                        ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20 transform scale-105"
-                                        : "bg-white border border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-900 hover:bg-slate-50"
-                                        }`}
-                                >
-                                    {category}
-                                </button>
-                            ))}
+                        {/* Category Filters with Scroll Indicators */}
+                        <div className="relative flex-1">
+                            {/* Left fade indicator */}
+                            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#fdfdfd] to-transparent z-10 pointer-events-none md:hidden" />
+
+                            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar px-1">
+                                {categories.map((category) => (
+                                    <button
+                                        key={category}
+                                        onClick={() => setSelectedCategory(category)}
+                                        className={`px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${selectedCategory === category
+                                            ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20 transform scale-105"
+                                            : "bg-white border border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-900 hover:bg-slate-50"
+                                            }`}
+                                    >
+                                        {category}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Right fade indicator */}
+                            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#fdfdfd] to-transparent z-10 pointer-events-none md:hidden" />
                         </div>
                         <div className="relative w-full md:w-72">
                             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />

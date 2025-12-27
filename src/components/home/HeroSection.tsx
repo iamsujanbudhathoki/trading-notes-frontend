@@ -18,10 +18,10 @@ export function HeroSection() {
 
                 {/* Typography - The "Diary" Concept */}
                 <h1 className="font-serif font-bold text-5xl md:text-7xl lg:text-8xl text-slate-900 tracking-tight mb-8 max-w-5xl mx-auto leading-[1.1]">
-                    Snippets from the<br/>
+                    Snippets from the<br />
                     <span className="relative inline-block">
                         <span className="relative z-10 text-slate-900">Diary of a Trader.</span>
-                        <span className="absolute bottom-2 left-0 w-full h-4 bg-yellow-100/80 -z-0 -rotate-1" />
+                        <span className="absolute bottom-2 left-0 w-full h-4 bg-amber-100 -z-0 -rotate-1" />
                     </span>
                 </h1>
 
@@ -77,7 +77,7 @@ export function HeroSection() {
 
                             <div className="prose prose-slate prose-lg max-w-none text-slate-600 leading-relaxed">
                                 <p>
-                                    The setup was there. <span className="bg-yellow-100 px-1">Liquidity was swept</span> on the 15m chart, and we had a displacement back into the range.
+                                    The setup was there. <span className="bg-amber-100 px-1">Liquidity was swept</span> on the 15m chart, and we had a displacement back into the range.
                                     Technically, it was a valid long.
                                 </p>
                                 <p>
