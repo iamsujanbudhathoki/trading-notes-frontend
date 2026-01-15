@@ -32,15 +32,15 @@ export default function PrivacyPage() {
                         </p>
                         <ul className="space-y-3 text-slate-600">
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span><strong className="text-slate-900 font-medium">Personal Data:</strong> Information you voluntarily provide such as name and email address when subscribing to our newsletter or contacting us.</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span><strong className="text-slate-900 font-medium">Usage Data:</strong> Information automatically collected when you visit our site, including IP address, browser type, pages visited, and time spent on pages.</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span><strong className="text-slate-900 font-medium">Cookies:</strong> We use cookies and similar tracking technologies to track activity on our website and hold certain information.</span>
                             </li>
                         </ul>
@@ -53,19 +53,19 @@ export default function PrivacyPage() {
                         </p>
                         <ul className="space-y-3 text-slate-600">
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span>Provide, operate, and maintain our website</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span>Improve, personalize, and expand our website</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span>Understand and analyze how you use our website</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span>Send you newsletters and marketing communications (with your consent)</span>
                             </li>
                         </ul>
@@ -85,15 +85,15 @@ export default function PrivacyPage() {
                         </p>
                         <ul className="space-y-3 text-slate-600">
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span>Access, update, or delete your personal information</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span>Opt-out of marketing communications</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="text-copper-500 font-bold mt-1">•</span>
+                                <span className="text-emerald-500 font-bold mt-1">•</span>
                                 <span>Request a copy of your data</span>
                             </li>
                         </ul>

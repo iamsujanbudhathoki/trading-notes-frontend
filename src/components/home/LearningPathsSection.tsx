@@ -14,7 +14,7 @@ export function LearningPathsSection() {
                         Curated curriculums designed for your experience level. From foundational mechanics to advanced institutional concepts.
                     </p>
                 </div>
-                <Link href="/learn" className="text-copper-600 font-bold flex items-center gap-2 hover:gap-3 transition-all hover:text-copper-700">
+                <Link href="/learn" className="text-emerald-600 font-bold flex items-center gap-2 hover:gap-3 transition-all hover:text-emerald-700">
                     View Full Curriculum <ArrowRight className="w-4 h-4" />
                 </Link>
             </div>
@@ -36,7 +36,7 @@ export function LearningPathsSection() {
                     description="The core strategy. Learn about Order Blocks, Liquidity, and how institutions trade."
                     icon={TrendingUp}
                     href="/learn/smart-money-concepts"
-                    color="copper"
+                    color="emerald"
                     featured={true}
                     bgImage="/ictlogo.jpg"
                 />
@@ -46,7 +46,7 @@ export function LearningPathsSection() {
                     description="Master your mind. Advanced risk management is the only holy grail in trading."
                     icon={BrainCircuit}
                     href="/learn/psychology"
-                    color="indigo"
+                    color="emerald"
                     bgImage="/risk-management.jpg"
                 />
             </div>
@@ -57,8 +57,8 @@ export function LearningPathsSection() {
 function LevelCard({ level, title, description, icon: Icon, href, color, bgImage, featured = false, badge }: any) {
     const colorClasses = {
         slate: 'from-slate-700 to-slate-900',
-        copper: 'from-copper-500 to-copper-700',
-        indigo: 'from-indigo-600 to-slate-900'
+        emerald: 'from-emerald-500 to-emerald-700',
+
     };
 
     return (
@@ -84,7 +84,7 @@ function LevelCard({ level, title, description, icon: Icon, href, color, bgImage
                 {/* Level Badge */}
                 <div className="absolute top-4 right-4 flex gap-2">
                     {badge && (
-                        <span className="px-3 py-1.5 bg-copper-500 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg animate-pulse">
+                        <span className="px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg animate-pulse">
                             {badge}
                         </span>
                     )}
@@ -95,7 +95,7 @@ function LevelCard({ level, title, description, icon: Icon, href, color, bgImage
 
                 {/* Title on Image */}
                 <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="font-serif font-bold text-2xl text-white mb-2 group-hover:text-copper-400 transition-colors">
+                    <h3 className="font-serif font-bold text-2xl text-white mb-2 group-hover:text-emerald-400 transition-colors">
                         {title}
                     </h3>
                 </div>
@@ -107,7 +107,7 @@ function LevelCard({ level, title, description, icon: Icon, href, color, bgImage
                     {description}
                 </p>
 
-                <div className="flex items-center text-copper-600 font-bold text-sm gap-2 group-hover:gap-3 transition-all uppercase tracking-wider">
+                <div className="flex items-center text-emerald-600 font-bold text-sm gap-2 group-hover:gap-3 transition-all uppercase tracking-wider">
                     Start Learning <ArrowRight className="w-4 h-4" />
                 </div>
             </div>

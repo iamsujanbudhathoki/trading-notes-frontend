@@ -54,7 +54,7 @@ export function SearchPopup({ isOpen, onClose }: SearchPopupProps) {
 
                 {/* Search input */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 pr-10 sm:pr-12">
-                    <Search className="w-6 h-6 sm:w-7 sm:h-7 text-copper-500 flex-shrink-0" />
+                    <Search className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-500 flex-shrink-0" />
                     <input
                         type="text"
                         placeholder="Search..."
@@ -87,7 +87,7 @@ export function SearchPopup({ isOpen, onClose }: SearchPopupProps) {
                                 <button
                                     key={term}
                                     onClick={() => setQuery(term)}
-                                    className="px-3 py-2 sm:px-4 bg-slate-50 hover:bg-copper-500 hover:text-white rounded-lg text-xs sm:text-sm font-medium transition-all duration-300"
+                                    className="px-3 py-2 sm:px-4 bg-slate-50 hover:bg-emerald-500 hover:text-white rounded-lg text-xs sm:text-sm font-medium transition-all duration-300"
                                 >
                                     {term}
                                 </button>

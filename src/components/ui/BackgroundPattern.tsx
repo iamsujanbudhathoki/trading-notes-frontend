@@ -79,7 +79,7 @@ export function BackgroundPattern() {
                         cx={60 * (i % 10) + 100}
                         cy={60 * Math.floor(i / 10) + 150}
                         r="2"
-                        fill="#B85C38"
+                        fill="#059669"
                         opacity="0.1"
                     />
                 ))}

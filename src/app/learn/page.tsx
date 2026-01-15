@@ -111,8 +111,8 @@ export default function LearnPage() {
             {/* Hero Section */}
             <section className="relative bg-slate-950 overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-copper-500/20 via-slate-900 to-slate-900" />
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-copper-500/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-slate-900 to-slate-900" />
+                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent" />
                     <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
                 </div>
 
@@ -121,18 +121,18 @@ export default function LearnPage() {
                         <h1 className="font-serif font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
                             Technical Analysis
                             <br />
-                            <span className="text-copper-400">Methodologies</span>
+                            <span className="text-emerald-400">Methodologies</span>
                         </h1>
                         <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
                             Master modern TA through structured curricula. From ICT/SMC to Price Action and beyond.
                         </p>
                         <div className="flex items-center justify-center gap-8 text-sm text-slate-400 uppercase tracking-wider font-medium">
                             <div className="flex items-center gap-2">
-                                <BookOpen className="w-5 h-5 text-copper-500" />
+                                <BookOpen className="w-5 h-5 text-emerald-500" />
                                 <span>200+ Lessons</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <Target className="w-5 h-5 text-copper-500" />
+                                <Target className="w-5 h-5 text-emerald-500" />
                                 <span>9 Methodologies</span>
                             </div>
                         </div>
@@ -154,14 +154,14 @@ export default function LearnPage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent md:hidden" />
                                 <div className="absolute top-6 left-6">
-                                    <span className="px-4 py-2 bg-copper-500 text-white rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-copper-500/20">
+                                    <span className="px-4 py-2 bg-emerald-500 text-white rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-emerald-500/20">
                                         <Star className="w-3 h-3 fill-current" />
                                         {featuredMethodology.badge}
                                     </span>
                                 </div>
                             </div>
                             <div className="p-8 md:p-12 flex flex-col justify-center bg-white">
-                                <h2 className="font-serif font-bold text-3xl md:text-4xl text-slate-900 mb-4 group-hover:text-copper-600 transition-colors duration-300">
+                                <h2 className="font-serif font-bold text-3xl md:text-4xl text-slate-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">
                                     {featuredMethodology.title}
                                 </h2>
                                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -169,11 +169,11 @@ export default function LearnPage() {
                                 </p>
                                 <div className="flex items-center gap-6 mb-8 border-t border-slate-100 pt-6">
                                     <div className="flex items-center gap-2 text-slate-500 text-sm font-medium uppercase tracking-wider">
-                                        <BookOpen className="w-4 h-4 text-copper-500" />
+                                        <BookOpen className="w-4 h-4 text-emerald-500" />
                                         <span>{featuredMethodology.lessons} lessons</span>
                                     </div>
                                 </div>
-                                <div className="inline-flex items-center gap-2 text-copper-600 font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all duration-300">
+                                <div className="inline-flex items-center gap-2 text-emerald-600 font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all duration-300">
                                     Start Learning
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
@@ -210,9 +210,9 @@ export default function LearnPage() {
                                         </div>
                                     </div>
                                     <div className="p-8 flex-1 flex flex-col">
-                                        <p className="text-xs text-copper-600 font-bold uppercase tracking-wider mb-3">{method.subtitle}</p>
+                                        <p className="text-xs text-emerald-600 font-bold uppercase tracking-wider mb-3">{method.subtitle}</p>
                                         <p className="text-slate-600 mb-6 leading-relaxed flex-1">{method.description}</p>
-                                        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all duration-300 text-slate-900 group-hover:text-copper-600">
+                                        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all duration-300 text-slate-900 group-hover:text-emerald-600">
                                             Start Learning
                                             <ArrowRight className="w-4 h-4" />
                                         </div>
@@ -251,7 +251,7 @@ export default function LearnPage() {
                                             </div>
                                         </div>
                                         <div className="p-6 flex-1 flex flex-col">
-                                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-copper-600 transition-colors">
+                                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                                                 {method.title}
                                             </h3>
                                             <p className="text-sm text-slate-600 mb-4 leading-relaxed flex-1">{method.description}</p>

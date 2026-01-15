@@ -8,23 +8,26 @@
   --color-slate-800: #1E293B;
   --color-slate-600: #475569;
   --color-slate-500: #64748B;
-  
-  /* Premium Accent Colors */
-  --color-copper-500: #B85C38;
-  --color-copper-600: #9A4A2B;
-  --color-copper-50: #FFF7ED;
-  
+
+  /* Premium Accent Colors - Primary Brand Identity (Emerald/Growth) */
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #059669;
+  --color-emerald-50: #ECFDF5;
+  --color-emerald-100: #D1FAE5;
+
   --color-green-700: #047857;
   --color-green-50: #ECFDF5;
-  
+
   /* Standardized Highlight Yellow - Journal/Highlighter Theme */
   --color-highlight-yellow: #FEF9C3;
   --color-highlight-yellow-dark: #FEF08A;
-  
-  /* Selection Colors - Amber for better readability */
-  --color-selection-bg: #FDE68A;
-  --color-selection-text: #78350F;
-  
+
+  /* Selection Colors - Unified with Brand */
+  --color-selection-bg: #D1FAE5;
+  /* Emerald-100 */
+  --color-selection-text: #059669;
+  /* Emerald-600 */
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
@@ -43,6 +46,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0);
@@ -50,23 +54,47 @@
   }
 
   @keyframes pulse-slow {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
   }
 
   @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes slide-in-top {
-    from { transform: translateY(-10px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   --animate-fade-in: fade-in 200ms ease-out;
@@ -94,7 +122,7 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
-  
+
   .glass-dark {
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(12px);
@@ -107,16 +135,16 @@
   }
 
   .shadow-glow {
-    box-shadow: 0 0 20px -5px var(--color-copper-500);
+    box-shadow: 0 0 20px -5px var(--color-emerald-500);
   }
 
   /* Premium Gradients */
   .bg-gradient-premium {
     background: linear-gradient(135deg, #FDFBF7 0%, #F0EAE0 100%);
   }
-  
-  .text-gradient-copper {
-    background: linear-gradient(135deg, #B85C38 0%, #9A4A2B 100%);
+
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -137,15 +165,26 @@ body {
 }
 
 /* Smooth transitions for all interactive elements */
-a, button {
+a,
+button {
   transition: var(--transition-smooth);
 }
 
 /* Mobile-specific styles */
 @media (max-width: 767px) {
-  h1 { font-size: 36px !important; letter-spacing: -0.02em; }
-  h2 { font-size: 30px !important; letter-spacing: -0.01em; }
-  h3 { font-size: 22px !important; }
+  h1 {
+    font-size: 36px !important;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 30px !important;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 22px !important;
+  }
 }
 
 /* Custom Scrollbar */

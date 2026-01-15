@@ -12,9 +12,9 @@ interface CalloutProps {
 
 const styles = {
     concept: {
-        container: "border-l-copper-500 bg-copper-50",
+        container: "border-l-emerald-500 bg-emerald-50",
         icon: BookOpen,
-        iconColor: "text-copper-600",
+        iconColor: "text-emerald-600",
     },
     warning: {
         container: "border-l-amber-500 bg-amber-50",

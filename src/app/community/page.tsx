@@ -62,12 +62,12 @@ export default function CommunityPage() {
             {/* Hero */}
             <section className="relative bg-slate-950 text-white py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-copper-500/10 to-transparent blur-3xl" />
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-slate-800/20 to-transparent blur-3xl" />
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
                     <h1 className="font-serif font-bold text-4xl md:text-6xl text-white mb-6">
-                        Trading <span className="text-copper-400">Communities</span>
+                        Trading <span className="text-emerald-400">Communities</span>
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         Connect with fellow traders, share ideas, and accelerate your learning curve by joining these top communities.
@@ -94,7 +94,7 @@ export default function CommunityPage() {
 
                                 <div className="flex-1">
                                     <div className="flex items-center gap-3 mb-2">
-                                        <h2 className="font-serif font-bold text-2xl text-slate-900 group-hover:text-copper-600 transition-colors">
+                                        <h2 className="font-serif font-bold text-2xl text-slate-900 group-hover:text-emerald-600 transition-colors">
                                             {community.name}
                                         </h2>
                                         <span className="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-bold rounded-full uppercase tracking-wider border border-slate-100">
@@ -106,17 +106,17 @@ export default function CommunityPage() {
                                     </p>
                                     <div className="flex items-center gap-6 text-sm text-slate-500 font-medium">
                                         <div className="flex items-center gap-2">
-                                            <Users className="w-4 h-4 text-copper-500" />
+                                            <Users className="w-4 h-4 text-emerald-500" />
                                             {community.members} Members
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <Shield className="w-4 h-4 text-copper-500" />
+                                            <Shield className="w-4 h-4 text-emerald-500" />
                                             {community.type}
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-2 text-copper-600 font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all self-start md:self-center mt-4 md:mt-0">
+                                <div className="flex items-center gap-2 text-emerald-600 font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all self-start md:self-center mt-4 md:mt-0">
                                     Join Now
                                     <ArrowRight className="w-4 h-4" />
                                 </div>

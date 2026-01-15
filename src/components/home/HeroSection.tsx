@@ -21,7 +21,7 @@ export function HeroSection() {
                     Snippets from the<br />
                     <span className="relative inline-block">
                         <span className="relative z-10 text-slate-900">Diary of a Trader.</span>
-                        <span className="absolute bottom-2 left-0 w-full h-4 bg-amber-100 -z-0 -rotate-1" />
+                        <span className="absolute bottom-2 left-0 w-full h-4 bg-emerald-100 -z-0 -rotate-1" />
                     </span>
                 </h1>
 
@@ -57,9 +57,9 @@ export function HeroSection() {
                     <div className="relative bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden p-8 md:p-12 text-left transform rotate-x-2 transition-transform duration-700 hover:rotate-0">
                         {/* Window Controls */}
                         <div className="flex items-center gap-2 mb-8 border-b border-slate-100 pb-4">
-                            <div className="w-3 h-3 rounded-full bg-red-400/80" />
-                            <div className="w-3 h-3 rounded-full bg-amber-400/80" />
-                            <div className="w-3 h-3 rounded-full bg-green-400/80" />
+                            <div className="w-3 h-3 rounded-full bg-slate-200" />
+                            <div className="w-3 h-3 rounded-full bg-slate-200" />
+                            <div className="w-3 h-3 rounded-full bg-slate-200" />
                             <div className="ml-4 text-xs text-slate-400 font-mono">journal_entry_042.md</div>
                         </div>
 
@@ -77,19 +77,19 @@ export function HeroSection() {
 
                             <div className="prose prose-slate prose-lg max-w-none text-slate-600 leading-relaxed">
                                 <p>
-                                    The setup was there. <span className="bg-amber-100 px-1">Liquidity was swept</span> on the 15m chart, and we had a displacement back into the range.
+                                    The setup was there. <span className="bg-emerald-100 px-1">Liquidity was swept</span> on the 15m chart, and we had a displacement back into the range.
                                     Technically, it was a valid long.
                                 </p>
                                 <p>
                                     But the 4H narrative was bearish. We were reacting off a higher timeframe supply zone.
-                                    Taking a long here would be <span className="border-b-2 border-red-200 text-slate-800 font-medium">fighting the tide</span>.
+                                    Taking a long here would be <span className="border-b-2 border-emerald-200 text-slate-800 font-medium">fighting the tide</span>.
                                 </p>
                                 <p className="text-slate-800 font-medium italic border-l-4 border-slate-900 pl-4 py-1 my-4">
                                     "Patience is not the ability to wait, but the ability to keep a good attitude while waiting."
                                 </p>
                                 <p>
                                     I chose to preserve capital. No trade is better than a bad trade.
-                                    <span className="text-copper-600 font-bold"> Capital preservation {'>'} Chasing pips.</span>
+                                    <span className="text-emerald-600 font-bold"> Capital preservation {'>'} Chasing pips.</span>
                                 </p>
                             </div>
                         </div>

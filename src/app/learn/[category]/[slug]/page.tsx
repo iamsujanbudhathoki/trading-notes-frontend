@@ -79,7 +79,7 @@ export default function LessonPage({ params }: { params: Promise<{ category: str
     // Get curriculum and metadata
     const curriculum = getCurriculum(category);
     const metadata = categoryMetadata[category];
-    const accentColor = metadata?.color || "#B85C38"; // Default to copper if not found
+    const accentColor = metadata?.color || "#059669"; // Default to emerald if not found
 
     // Calculate Course Progress
     const totalLessons = curriculum ? curriculum.reduce((acc, sec) => acc + sec.lessons.length, 0) : 0;

@@ -29,12 +29,12 @@ export default function BrokersPage() {
             {/* Hero Section */}
             <section className="relative bg-slate-950 text-white py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-copper-500/10 to-transparent blur-3xl" />
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-slate-800/20 to-transparent blur-3xl" />
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
                     <h1 className="font-serif font-bold text-4xl md:text-6xl text-white mb-6">
-                        Broker Reviews & <span className="text-copper-400">Ratings</span>
+                        Broker Reviews & <span className="text-emerald-400">Ratings</span>
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
                         Unbiased reviews of the world's top trading platforms. We test spreads, execution speed, withdrawals, and support so you don't have to.
@@ -56,7 +56,7 @@ export default function BrokersPage() {
                                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors" style={{ backgroundColor: `${cat.color}15` }}>
                                     <Icon className="w-6 h-6" style={{ color: cat.color }} />
                                 </div>
-                                <h3 className="font-serif font-bold text-slate-900 mb-1 group-hover:text-copper-600 transition-colors">{cat.title}</h3>
+                                <h3 className="font-serif font-bold text-slate-900 mb-1 group-hover:text-emerald-600 transition-colors">{cat.title}</h3>
                                 <p className="text-xs text-slate-500 font-medium">{cat.desc}</p>
                             </Link>
                         );
@@ -85,9 +85,9 @@ export default function BrokersPage() {
 
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2 mb-1">
-                                    <h3 className="font-serif font-bold text-slate-900 truncate group-hover:text-copper-600 transition-colors">{broker.name}</h3>
+                                    <h3 className="font-serif font-bold text-slate-900 truncate group-hover:text-emerald-600 transition-colors">{broker.name}</h3>
                                     <div className="flex items-center gap-1 bg-slate-50 px-1.5 py-0.5 rounded text-xs border border-slate-100">
-                                        <Star className="w-3 h-3 fill-copper-500 text-copper-500" />
+                                        <Star className="w-3 h-3 fill-emerald-500 text-emerald-500" />
                                         <span className="font-bold text-slate-700">{broker.rating}</span>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@ export default function BrokersPage() {
                                 href={broker.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-shrink-0 p-2 bg-slate-50 hover:bg-copper-500 text-slate-400 hover:text-white rounded-lg transition-colors"
+                                className="flex-shrink-0 p-2 bg-slate-50 hover:bg-emerald-500 text-slate-400 hover:text-white rounded-lg transition-colors"
                             >
                                 <ExternalLink className="w-4 h-4" />
                             </a>

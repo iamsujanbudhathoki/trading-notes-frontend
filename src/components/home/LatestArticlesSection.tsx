@@ -67,7 +67,7 @@ export function LatestArticlesSection() {
                                 </div>
                             </div>
 
-                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-copper-700 transition-colors duration-300 leading-snug">
+                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors duration-300 leading-snug">
                                 {article.title}
                             </h3>
 
@@ -76,7 +76,7 @@ export function LatestArticlesSection() {
                             </p>
 
                             <div className="flex items-center text-slate-900 text-xs font-bold uppercase tracking-wider group-hover:gap-2 transition-all duration-300">
-                                Read Entry <ArrowRight className="w-3 h-3 ml-1 text-copper-500" />
+                                Read Entry <ArrowRight className="w-3 h-3 ml-1 text-emerald-500" />
                             </div>
                         </div>
                     </Link>

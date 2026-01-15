@@ -45,7 +45,7 @@ export function CandlestickPatternsSection() {
                         The language of price action. Read the market sentiment bar by bar.
                     </p>
                 </div>
-                <Link href="/learn/candlesticks" className="text-copper-600 font-bold flex items-center gap-2 hover:gap-3 transition-all hover:text-copper-700">
+                <Link href="/learn/candlesticks" className="text-emerald-600 font-bold flex items-center gap-2 hover:gap-3 transition-all hover:text-emerald-700">
                     View All Patterns <ArrowRight className="w-4 h-4" />
                 </Link>
             </div>
@@ -68,20 +68,20 @@ export function CandlestickPatternsSection() {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
 
                             {/* Icon Overlay */}
-                            <div className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center text-copper-600 shadow-sm">
+                            <div className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center text-emerald-600 shadow-sm">
                                 <pattern.icon className="w-5 h-5" />
                             </div>
                         </div>
 
                         {/* Content */}
                         <div className="p-6">
-                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-copper-600 transition-colors">
+                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                                 {pattern.title}
                             </h3>
                             <p className="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">
                                 {pattern.description}
                             </p>
-                            <div className="flex items-center text-copper-600 text-sm font-bold gap-2 group-hover:gap-3 transition-all uppercase tracking-wider">
+                            <div className="flex items-center text-emerald-600 text-sm font-bold gap-2 group-hover:gap-3 transition-all uppercase tracking-wider">
                                 Learn More <ArrowRight className="w-4 h-4" />
                             </div>
                         </div>

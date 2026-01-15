@@ -7,19 +7,19 @@ export function PhilosophySection() {
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none mix-blend-overlay" />
 
             {/* Ambient Glow */}
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-copper-500/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-slate-800/20 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     {/* Content Side */}
                     <div className="flex-1 w-full order-2 lg:order-1">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-copper-500/10 text-copper-400 font-bold text-xs uppercase tracking-wider mb-6 border border-copper-500/20">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 font-bold text-xs uppercase tracking-wider mb-6 border border-emerald-500/20">
                             Our Philosophy
                         </div>
                         <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1]">
                             Logic Over Luck. <br />
-                            <span className="text-gradient-copper">Process Over Profits.</span>
+                            <span className="text-gradient-emerald">Process Over Profits.</span>
                         </h2>
                         <div className="space-y-6 text-lg text-slate-400 leading-relaxed mb-10">
                             <p>
@@ -73,13 +73,13 @@ export function PhilosophySection() {
                                     {/* Rings */}
                                     <div className="absolute inset-0 rounded-full border border-white/5" />
                                     <div className="absolute inset-4 rounded-full border border-white/10 border-dashed animate-[spin_10s_linear_infinite]" />
-                                    <div className="absolute inset-8 rounded-full border border-copper-500/20" />
+                                    <div className="absolute inset-8 rounded-full border border-emerald-500/20" />
 
                                     {/* Core */}
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="text-center">
                                             <div className="text-3xl font-bold text-white mb-1">100%</div>
-                                            <div className="text-[10px] text-copper-500 uppercase tracking-widest font-bold">Transparency</div>
+                                            <div className="text-[10px] text-emerald-500 uppercase tracking-widest font-bold">Transparency</div>
                                         </div>
                                     </div>
 
@@ -94,22 +94,22 @@ export function PhilosophySection() {
                             {/* Footer List */}
                             <div className="space-y-3">
                                 <div className="flex items-center gap-3 text-sm text-slate-400">
-                                    <CheckCircle2 className="w-4 h-4 text-copper-500" />
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                                     <span>No hidden signals or groups</span>
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-slate-400">
-                                    <CheckCircle2 className="w-4 h-4 text-copper-500" />
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                                     <span>Pure educational content</span>
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-slate-400">
-                                    <CheckCircle2 className="w-4 h-4 text-copper-500" />
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                                     <span>Institutional methodology</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* Decorative Background Blob */}
-                        <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-copper-500/5 rounded-full blur-3xl opacity-50" />
+                        <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-emerald-500/5 rounded-full blur-3xl opacity-50" />
                     </div>
                 </div>
             </div>
@@ -120,11 +120,11 @@ export function PhilosophySection() {
 function PhilosophyCard({ icon: Icon, title, desc }: { icon: any, title: string, desc: string }) {
     return (
         <div className="flex items-start gap-4 p-5 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 group border border-white/5 hover:border-white/10">
-            <div className="p-3 bg-slate-900 rounded-xl text-slate-400 shadow-sm group-hover:bg-copper-500 group-hover:text-white transition-colors duration-300 border border-white/5">
+            <div className="p-3 bg-slate-900 rounded-xl text-slate-400 shadow-sm group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300 border border-white/5">
                 <Icon className="w-5 h-5" />
             </div>
             <div>
-                <h3 className="font-bold text-white text-base mb-1 group-hover:text-copper-400 transition-colors">{title}</h3>
+                <h3 className="font-bold text-white text-base mb-1 group-hover:text-emerald-400 transition-colors">{title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
             </div>
         </div>

@@ -8,8 +8,8 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-20">
                     {/* Brand - Spans 4 columns */}
                     <div className="md:col-span-4 space-y-8">
-                        <Link href="/" className="inline-block font-serif text-2xl font-bold text-white tracking-tight hover:text-copper-400 transition-colors">
-                            TRADE<span className="text-copper-500">NOTES</span>
+                        <Link href="/" className="inline-block font-serif text-2xl font-bold text-white tracking-tight hover:text-emerald-400 transition-colors">
+                            TRADE<span className="text-emerald-500">NOTES</span>
                         </Link>
                         <p className="text-slate-400 leading-relaxed pr-6 font-medium text-sm">
                             A personal trading journal and educational platform dedicated to demystifying institutional price action.
@@ -44,7 +44,7 @@ export function Footer() {
                                 <FooterLink href="/community">Trading Communities</FooterLink>
                                 <FooterLink href="/tools">
                                     Trader's Toolbox
-                                    <span className="ml-2 px-1.5 py-0.5 bg-copper-500/10 text-copper-400 text-[10px] font-bold uppercase rounded-sm border border-copper-500/20">Free</span>
+                                    <span className="ml-2 px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase rounded-sm border border-emerald-500/20">Free</span>
                                 </FooterLink>
                                 <FooterLink href="/about">About Us</FooterLink>
                             </ul>
@@ -74,7 +74,7 @@ export function Footer() {
                 <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-600">
                     <p>&copy; {new Date().getFullYear()} TRADENOTES. All rights reserved.</p>
                     <p className="flex items-center gap-1">
-                        Designed with <span className="text-copper-500">♥</span> for traders
+                        Designed with <span className="text-emerald-500">♥</span> for traders
                     </p>
                 </div>
             </div>
@@ -85,7 +85,7 @@ export function Footer() {
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
     return (
         <li>
-            <Link href={href} className="text-slate-400 hover:text-copper-400 hover:translate-x-1 transition-all duration-300 block">
+            <Link href={href} className="text-slate-400 hover:text-emerald-400 hover:translate-x-1 transition-all duration-300 block">
                 {children}
             </Link>
         </li>
@@ -98,7 +98,7 @@ function SocialLink({ href, label, children }: { href: string; label: string; ch
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-copper-500 hover:text-white transition-all duration-300 hover:-translate-y-1"
+            className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-emerald-500 hover:text-white transition-all duration-300 hover:-translate-y-1"
             aria-label={label}
         >
             {children}

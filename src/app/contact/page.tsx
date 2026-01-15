@@ -6,12 +6,12 @@ export default function ContactPage() {
             {/* Hero Section */}
             <section className="relative bg-slate-950 text-white py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-copper-500/10 to-transparent blur-3xl" />
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-slate-800/20 to-transparent blur-3xl" />
 
                 <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
                     <h1 className="font-serif font-bold text-4xl md:text-6xl mb-6 leading-tight">
-                        Get in <span className="text-copper-400">Touch</span>
+                        Get in <span className="text-emerald-400">Touch</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
                         Have questions, suggestions, or feedback? We'd love to hear from you.
@@ -23,7 +23,7 @@ export default function ContactPage() {
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Email Card */}
                     <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:shadow-slate-900/10 transition-all duration-300 group">
-                        <div className="w-12 h-12 rounded-xl bg-copper-50 flex items-center justify-center text-copper-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                             <Mail className="w-6 h-6" />
                         </div>
                         <h2 className="font-serif font-bold text-2xl text-slate-900 mb-4">Email Us</h2>
@@ -32,10 +32,10 @@ export default function ContactPage() {
                         </p>
                         <a
                             href="mailto:hello@tradingacademy.com"
-                            className="text-copper-600 font-bold hover:text-copper-700 transition-colors inline-flex items-center gap-2"
+                            className="text-emerald-600 font-bold hover:text-emerald-700 transition-colors inline-flex items-center gap-2"
                         >
                             hello@tradingacademy.com
-                            <span className="block w-full h-px bg-copper-600/30 group-hover:bg-copper-600 transition-colors" />
+                            <span className="block w-full h-px bg-emerald-600/30 group-hover:bg-emerald-600 transition-colors" />
                         </a>
                     </div>
 
@@ -53,7 +53,7 @@ export default function ContactPage() {
                                 href="https://discord.gg/trading"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-slate-600 hover:text-copper-600 font-medium transition-colors p-3 rounded-lg hover:bg-slate-50"
+                                className="flex items-center gap-3 text-slate-600 hover:text-emerald-600 font-medium transition-colors p-3 rounded-lg hover:bg-slate-50"
                             >
                                 <MessageCircle className="w-5 h-5" />
                                 Discord Community
@@ -62,7 +62,7 @@ export default function ContactPage() {
                                 href="https://twitter.com/tradingacademy"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-slate-600 hover:text-copper-600 font-medium transition-colors p-3 rounded-lg hover:bg-slate-50"
+                                className="flex items-center gap-3 text-slate-600 hover:text-emerald-600 font-medium transition-colors p-3 rounded-lg hover:bg-slate-50"
                             >
                                 <Twitter className="w-5 h-5" />
                                 Twitter/X
@@ -71,7 +71,7 @@ export default function ContactPage() {
                                 href="https://t.me/tradingacademy"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-slate-600 hover:text-copper-600 font-medium transition-colors p-3 rounded-lg hover:bg-slate-50"
+                                className="flex items-center gap-3 text-slate-600 hover:text-emerald-600 font-medium transition-colors p-3 rounded-lg hover:bg-slate-50"
                             >
                                 <Send className="w-5 h-5" />
                                 Telegram

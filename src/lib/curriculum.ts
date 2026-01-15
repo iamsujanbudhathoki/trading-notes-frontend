@@ -114,47 +114,47 @@ export const categoryMetadata: Record<string, { title: string; description: stri
     "smart-money-concepts": {
         title: "Smart Money Concepts",
         description: "Master institutional trading methodology. Learn how banks and institutions move the market.",
-        color: "#B85C38"
+        color: "#059669" // Emerald-600 (Primary Brand)
     },
     "price-action": {
         title: "Price Action Trading",
         description: "Trade without indicators using support, resistance, and candlestick patterns.",
-        color: "#8B5CF6"
+        color: "#0891B2" // Cyan-600 (Professional/Distinct)
     },
     "chart-patterns": {
         title: "Chart Patterns",
         description: "Identify and trade head & shoulders, triangles, flags, and more.",
-        color: "#10B981"
+        color: "#0D9488" // Teal-600 (Harmonious with Emerald)
     },
     "indicators": {
         title: "Indicator-Based Analysis",
         description: "Master RSI, MACD, Moving Averages, Bollinger Bands, and more.",
-        color: "#3B82F6"
+        color: "#2563EB" // Blue-600 (Trustworthy)
     },
     "volume-analysis": {
         title: "Volume Analysis",
         description: "Understand volume profiles, accumulation, distribution, and orderflow.",
-        color: "#F59E0B"
+        color: "#4F46E5" // Indigo-600 (Deep/Analytical)
     },
     "support-resistance": {
         title: "Support & Resistance",
         description: "Master horizontal levels, trend lines, and dynamic S/R.",
-        color: "#EF4444"
+        color: "#475569" // Slate-600 (Neutral/Foundational)
     },
     "candlestick-patterns": {
         title: "Candlestick Patterns",
         description: "Learn doji, engulfing, hammers, and reversal patterns.",
-        color: "#6366F1"
+        color: "#0D9488" // Teal-600
     },
     "market-structure": {
         title: "Market Structure",
         description: "Identify trends, reversals, and market phases.",
-        color: "#EC4899"
+        color: "#059669" // Emerald-600 (Core Concept)
     },
     "wyckoff": {
         title: "Wyckoff Method",
         description: "Accumulation, distribution, and market cycles.",
-        color: "#14B8A6"
+        color: "#0891B2" // Cyan-600
     }
 };
 

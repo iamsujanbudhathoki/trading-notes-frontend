@@ -60,7 +60,7 @@ export function SMCICTSection() {
 
                         <h2 className="font-serif font-bold text-4xl md:text-5xl text-slate-900 mb-6 tracking-tight leading-tight">
                             Build Your Own <br />
-                            <span className="text-copper-600">Trading Edge.</span>
+                            <span className="text-emerald-600">Trading Edge.</span>
                         </h2>
 
                         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -72,8 +72,8 @@ export function SMCICTSection() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                             {features.map((feature) => (
                                 <div key={feature} className="flex items-center gap-3">
-                                    <div className="w-5 h-5 rounded-full bg-copper-50 flex items-center justify-center shrink-0">
-                                        <CheckCircle2 className="w-3 h-3 text-copper-600" />
+                                    <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                                        <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                                     </div>
                                     <span className="text-slate-700 font-medium">{feature}</span>
                                 </div>
@@ -121,8 +121,8 @@ export function SMCICTSection() {
                                                     }`}
                                             >
                                                 <div className="flex items-start gap-4">
-                                                    <div className="w-10 h-10 rounded-full bg-copper-50 flex items-center justify-center shrink-0">
-                                                        <Icon className="w-5 h-5 text-copper-600" />
+                                                    <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                                                        <Icon className="w-5 h-5 text-emerald-600" />
                                                     </div>
                                                     <div>
                                                         <h3 className="font-bold text-slate-900 text-base mb-1">{slide.title}</h3>
@@ -141,7 +141,7 @@ export function SMCICTSection() {
                                             <button
                                                 key={index}
                                                 onClick={() => setCurrentSlide(index)}
-                                                className={`h-1.5 rounded-full transition-all duration-300 ${index === currentSlide ? "w-8 bg-copper-500" : "w-2 bg-slate-200 hover:bg-slate-300"
+                                                className={`h-1.5 rounded-full transition-all duration-300 ${index === currentSlide ? "w-8 bg-emerald-500" : "w-2 bg-slate-200 hover:bg-slate-300"
                                                     }`}
                                                 aria-label={`Go to slide ${index + 1}`}
                                             />

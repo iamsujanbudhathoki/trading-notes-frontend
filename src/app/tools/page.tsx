@@ -32,12 +32,12 @@ export default function ToolsPage() {
             {/* Header */}
             <section className="relative bg-slate-950 text-white py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-copper-500/10 to-transparent blur-3xl" />
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-slate-800/20 to-transparent blur-3xl" />
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
                     <h1 className="font-serif font-bold text-4xl md:text-6xl text-white mb-6">
-                        Trading <span className="text-copper-400">Tools</span>
+                        Trading <span className="text-emerald-400">Tools</span>
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         Essential calculators and utilities to enhance your trading edge. Precision matters.
@@ -54,12 +54,12 @@ export default function ToolsPage() {
                             <Link
                                 key={tool.title}
                                 href={tool.href}
-                                className="group bg-white p-6 rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 hover:shadow-xl hover:border-copper-500/30 transition-all duration-300 flex flex-col items-center text-center gap-4 hover:-translate-y-1"
+                                className="group bg-white p-6 rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 hover:shadow-xl hover:border-emerald-500/30 transition-all duration-300 flex flex-col items-center text-center gap-4 hover:-translate-y-1"
                             >
-                                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-copper-500 flex items-center justify-center transition-all duration-300 shadow-sm">
+                                <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-500 flex items-center justify-center transition-all duration-300 shadow-sm">
                                     <Icon className="w-7 h-7 text-slate-600 group-hover:text-white transition-colors duration-300" />
                                 </div>
-                                <span className="font-serif font-bold text-sm text-slate-900 group-hover:text-copper-600 transition-colors duration-300">
+                                <span className="font-serif font-bold text-sm text-slate-900 group-hover:text-emerald-600 transition-colors duration-300">
                                     {tool.title}
                                 </span>
                             </Link>
